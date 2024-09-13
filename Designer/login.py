@@ -14,99 +14,97 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Login(object):
     def setupUi(self, Login):
         Login.setObjectName("Login")
-        Login.resize(290, 370)
-        Login.setMinimumSize(QtCore.QSize(290, 370))
+        Login.resize(240, 430)
+        Login.setMinimumSize(QtCore.QSize(240, 430))
         Login.setMaximumSize(QtCore.QSize(16777215, 16777215))
-        Login.setStyleSheet("background-color: rgb(3, 10, 19);")
-        self.gridLayout_2 = QtWidgets.QGridLayout(Login)
-        self.gridLayout_2.setObjectName("gridLayout_2")
-        self.frame = QtWidgets.QFrame(Login)
-        self.frame.setMinimumSize(QtCore.QSize(275, 355))
-        self.frame.setMaximumSize(QtCore.QSize(275, 355))
-        self.frame.setStyleSheet("")
-        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame.setObjectName("frame")
-        self.gridLayout = QtWidgets.QGridLayout(self.frame)
-        self.gridLayout.setObjectName("gridLayout")
-        self.btn_login = QtWidgets.QPushButton(self.frame)
-        self.btn_login.setMinimumSize(QtCore.QSize(261, 41))
-        self.btn_login.setMaximumSize(QtCore.QSize(261, 41))
-        self.btn_login.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_login.setStyleSheet("font: 11pt \"JetBrains Mono\";\n"
-"background-color: rgb(0, 0, 0, 0.4);\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius: 7px;")
-        self.btn_login.setObjectName("btn_login")
-        self.gridLayout.addWidget(self.btn_login, 10, 0, 1, 1)
-        self.input_senha = QtWidgets.QLineEdit(self.frame)
-        self.input_senha.setMinimumSize(QtCore.QSize(261, 41))
-        self.input_senha.setMaximumSize(QtCore.QSize(261, 41))
-        self.input_senha.setStyleSheet("font: 9pt \"JetBrains Mono\";\n"
-"letter-spacing: 2px;\n"
-"background-color: rgb(0, 18, 40, .37);\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius:  7px;\n"
-"")
-        self.input_senha.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.input_senha.setDragEnabled(False)
-        self.input_senha.setObjectName("input_senha")
-        self.gridLayout.addWidget(self.input_senha, 7, 0, 1, 1)
-        self.input_usuario = QtWidgets.QLineEdit(self.frame)
-        self.input_usuario.setMinimumSize(QtCore.QSize(261, 41))
-        self.input_usuario.setMaximumSize(QtCore.QSize(261, 41))
-        self.input_usuario.setStyleSheet("font: 9pt \"JetBrains Mono\";\n"
-"letter-spacing: 1.2px;\n"
-"background-color: rgb(0, 18, 40, .37);\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius:  7px;\n"
-"")
-        self.input_usuario.setObjectName("input_usuario")
-        self.gridLayout.addWidget(self.input_usuario, 2, 0, 1, 1)
-        self.visual_logo = QtWidgets.QLabel(self.frame)
-        self.visual_logo.setMinimumSize(QtCore.QSize(261, 1))
-        self.visual_logo.setMaximumSize(QtCore.QSize(261, 186))
-        self.visual_logo.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
-        self.visual_logo.setText("")
-        self.visual_logo.setScaledContents(True)
-        self.visual_logo.setObjectName("visual_logo")
-        self.gridLayout.addWidget(self.visual_logo, 0, 0, 1, 1)
-        self.txt_senha = QtWidgets.QLabel(self.frame)
-        self.txt_senha.setMinimumSize(QtCore.QSize(55, 16))
-        self.txt_senha.setMaximumSize(QtCore.QSize(55, 16))
-        self.txt_senha.setStyleSheet("font: 8pt \"JetBrains Mono\";\n"
-"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);")
-        self.txt_senha.setObjectName("txt_senha")
-        self.gridLayout.addWidget(self.txt_senha, 5, 0, 1, 1)
-        self.txt_usuario = QtWidgets.QLabel(self.frame)
-        self.txt_usuario.setMinimumSize(QtCore.QSize(55, 16))
-        self.txt_usuario.setMaximumSize(QtCore.QSize(55, 16))
-        self.txt_usuario.setStyleSheet("font: 8pt \"JetBrains Mono\";\n"
-"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);")
-        self.txt_usuario.setObjectName("txt_usuario")
-        self.gridLayout.addWidget(self.txt_usuario, 1, 0, 1, 1)
-        self.visual = QtWidgets.QLabel(self.frame)
-        self.visual.setMinimumSize(QtCore.QSize(55, 16))
-        self.visual.setMaximumSize(QtCore.QSize(55, 16))
-        self.visual.setStyleSheet("font: 8pt \"JetBrains Mono\";\n"
-"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(255, 255, 255);")
-        self.visual.setText("")
-        self.visual.setObjectName("visual")
-        self.gridLayout.addWidget(self.visual, 9, 0, 1, 1)
-        self.gridLayout_2.addWidget(self.frame, 0, 0, 1, 1)
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        Login.setFont(font)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("Designer\\Logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Login.setWindowIcon(icon)
+        Login.setStyleSheet("")
+        self.widget = QtWidgets.QWidget(Login)
+        self.widget.setGeometry(QtCore.QRect(9, 9, 222, 412))
+        self.widget.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius: 5px;")
+        self.widget.setObjectName("widget")
+        self.input_user = QtWidgets.QLineEdit(self.widget)
+        self.input_user.setGeometry(QtCore.QRect(20, 140, 190, 40))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(10)
+        self.input_user.setFont(font)
+        self.input_user.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+"border:none;\n"
+"border-bottom:2px solid rgb(67, 36, 212);\n"
+"color:rgba(0, 0, 0, 240);\n"
+"padding-bottom:7px;")
+        self.input_user.setObjectName("input_user")
+        self.input_password = QtWidgets.QLineEdit(self.widget)
+        self.input_password.setGeometry(QtCore.QRect(20, 210, 190, 40))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(10)
+        self.input_password.setFont(font)
+        self.input_password.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+"border:none;\n"
+"border-bottom:2px solid rgb(67, 36, 212);\n"
+"color:rgba(0, 0, 0, 240);\n"
+"padding-bottom:7px;")
+        self.input_password.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.input_password.setObjectName("input_password")
+        self.title_login = QtWidgets.QLabel(self.widget)
+        self.title_login.setGeometry(QtCore.QRect(60, 60, 111, 40))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(28)
+        font.setBold(True)
+        font.setWeight(75)
+        self.title_login.setFont(font)
+        self.title_login.setStyleSheet("color:rgba(0, 0, 0, 200);")
+        self.title_login.setObjectName("title_login")
+        self.forgot_password = QtWidgets.QLabel(self.widget)
+        self.forgot_password.setGeometry(QtCore.QRect(26, 325, 181, 16))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        self.forgot_password.setFont(font)
+        self.forgot_password.setStyleSheet("color:rgba(0, 0, 0, 210);")
+        self.forgot_password.setObjectName("forgot_password")
+        self.button_login = QtWidgets.QPushButton(self.widget)
+        self.button_login.setGeometry(QtCore.QRect(20, 275, 190, 40))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_login.setFont(font)
+        self.button_login.setStyleSheet("QPushButton{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(0, 0, 41), stop:1 rgb(34, 18, 127));\n"
+"    color:rgba(255, 255, 255, 210);\n"
+"    border-radius:5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(17, 9, 84), stop:1 rgb(67, 36, 212));\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(34, 18, 127), stop:1 rgb(0, 0, 41));\n"
+"}")
+        self.button_login.setObjectName("button_login")
 
         self.retranslateUi(Login)
         QtCore.QMetaObject.connectSlotsByName(Login)
 
     def retranslateUi(self, Login):
         _translate = QtCore.QCoreApplication.translate
-        Login.setWindowTitle(_translate("Login", "Form"))
-        self.btn_login.setText(_translate("Login", "Login"))
-        self.txt_senha.setText(_translate("Login", "Senha:"))
-        self.txt_usuario.setText(_translate("Login", "CPF:"))
+        Login.setWindowTitle(_translate("Login", "Login"))
+        self.input_user.setPlaceholderText(_translate("Login", "  Usuário"))
+        self.input_password.setPlaceholderText(_translate("Login", "  Senha"))
+        self.title_login.setText(_translate("Login", "Login"))
+        self.forgot_password.setText(_translate("Login", "Esqueceu sua Senha?"))
+        self.button_login.setText(_translate("Login", "Login"))
 
 
 if __name__ == "__main__":

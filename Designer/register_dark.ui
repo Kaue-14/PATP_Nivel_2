@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Register</class>
+ <widget class="QWidget" name="Register">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>240</width>
+    <height>430</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>240</width>
+    <height>430</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>JetBrains Mono</family>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Registrar</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>Logo.png</normaloff>Logo.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>9</y>
+     <width>222</width>
+     <height>412</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 0, 0);
+border-radius: 5px;</string>
+   </property>
+   <widget class="QLabel" name="title_register">
+    <property name="geometry">
+     <rect>
+      <x>13</x>
+      <y>10</y>
+      <width>201</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>JetBrains Mono</family>
+      <pointsize>28</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgba(255, 255, 255, 200);</string>
+    </property>
+    <property name="text">
+     <string>Registrar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_register">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>360</y>
+      <width>190</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>JetBrains Mono</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(0, 0, 41), stop:1 rgb(34, 18, 127));
+	color:rgba(255, 255, 255, 210);
+	border-radius:5px;
+}
+
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(17, 9, 84), stop:1 rgb(67, 36, 212));
+}
+
+QPushButton:pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(34, 18, 127), stop:1 rgb(0, 0, 41));
+}</string>
+    </property>
+    <property name="text">
+     <string>Registrar</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="input_password_confirme">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>310</y>
+      <width>190</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>JetBrains Mono</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgba(0, 0, 0, 0);
+border:none;
+border-bottom:2px solid rgb(67, 36, 212);
+color:rgba(255, 255, 255, 240);
+padding-bottom:7px;</string>
+    </property>
+    <property name="frame">
+     <bool>true</bool>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+    <property name="placeholderText">
+     <string>  Confirmar Senha</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="input_password">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>260</y>
+      <width>190</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>JetBrains Mono</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgba(0, 0, 0, 0);
+border:none;
+border-bottom:2px solid rgb(67, 36, 212);
+color:rgba(255, 255, 255, 240);
+padding-bottom:7px;</string>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+    <property name="placeholderText">
+     <string>  Senha</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="input_email">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>110</y>
+      <width>190</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>JetBrains Mono</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgba(0, 0, 0, 0);
+border:none;
+border-bottom:2px solid rgb(67, 36, 212);
+color:rgba(255, 255, 255, 240);
+padding-bottom:7px;</string>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Normal</enum>
+    </property>
+    <property name="placeholderText">
+     <string>  Email</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="input_addres">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>210</y>
+      <width>190</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>JetBrains Mono</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgba(0, 0, 0, 0);
+border:none;
+border-bottom:2px solid rgb(67, 36, 212);
+color:rgba(255, 255, 255, 240);
+padding-bottom:7px;</string>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+    <property name="placeholderText">
+     <string>  Endereço</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="input_phone">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>160</y>
+      <width>190</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>JetBrains Mono</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgba(0, 0, 0, 0);
+border:none;
+border-bottom:2px solid rgb(67, 36, 212);
+color:rgba(255, 255, 255, 240);
+padding-bottom:7px;</string>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Normal</enum>
+    </property>
+    <property name="placeholderText">
+     <string>  Celular</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="input_name">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>60</y>
+      <width>190</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>JetBrains Mono</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgba(0, 0, 0, 0);
+border:none;
+border-bottom:2px solid rgb(67, 36, 212);
+color:rgba(255, 255, 255, 240);
+padding-bottom:7px;</string>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Normal</enum>
+    </property>
+    <property name="placeholderText">
+     <string>  Nome</string>
+    </property>
+   </widget>
+   <zorder>title_register</zorder>
+   <zorder>button_register</zorder>
+   <zorder>input_password_confirme</zorder>
+   <zorder>input_password</zorder>
+   <zorder>input_email</zorder>
+   <zorder>input_phone</zorder>
+   <zorder>input_name</zorder>
+   <zorder>input_addres</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
