@@ -1,9 +1,9 @@
 # Classe principal(superClass)
 class Pessoas:
     # Informações de Cadastro
-    def __init__(self, nome, idade, sexo, cpf, email, senha, telefone, endereco):
+    def __init__(self, nome, data_nascimento, sexo, cpf, email, senha, telefone, endereco):
         self.nome = nome
-        self.idade = idade
+        self.data_nascimento = data_nascimento
         self.sexo = sexo
         self.cpf = cpf
         self.email = email
