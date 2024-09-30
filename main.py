@@ -1,6 +1,11 @@
 from PyQt5 import QtWidgets, QtCore 
 import sys
 
+# Importa as classes
+import Classes.Classe_Agenda
+import Classes.Classes_Pessoas
+
+# Importa as interface
 from Designer.login import Ui_Login
 from Designer.register import Ui_Register
 from Designer.calendar import Ui_Calendario
@@ -53,10 +58,12 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         self.ui.button_calendar.clicked.connect(self.botao_calendario)
         self.ui.button_calendar_make.clicked.connect(self.botao_calendario)
         
-        # Botão de registro
+        # Botão de registro e marcar consulta
+        self.ui.button_make.clicked.connect(self.marcar_consulta)
         self.ui.button_register.clicked.connect(self.registrar)
 
         # Conectar os QLineEdit
+            # Page de registrar Paciente
         self.ui.input_name.returnPressed.connect(self.next_qlineedit)
         self.ui.input_email.returnPressed.connect(self.next_qlineedit)
         self.ui.input_adress.returnPressed.connect(self.next_qlineedit)
@@ -66,14 +73,22 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         self.ui.input_password.returnPressed.connect(self.next_qlineedit)
         self.ui.input_password_confirme.returnPressed.connect(self.next_qlineedit)
 
+            # Page de marcar consultas
+        self.ui.input_patient.returnPressed.connect(self.next_qlineedit)
+        self.ui.input_psychologist.returnPressed.connect(self.next_qlineedit)
+
     def registrar(self):
         if self.ui.input_password.text() == self.ui.input_password_confirme.text():
             print(f"Nome: {self.ui.input_name.text()} \nData de Nacimento: {self.ui.input_data.text()} \nCPF: {self.ui.input_cpf.text()} \nSexo: {self.ui.input_sexo.text()} \nCelular: {self.ui.input_phone.text()} \nEndereço: {self.ui.input_adress.text()} \nEmail: {self.ui.input_email.text()} \nSenha: {self.ui.input_password.text()}")
         else:
             print("As senhas não são iguais.")
 
+    def marcar_consulta(self):
+        print(f"Paciente: {self.ui.input_patient.text()} \nPsicólogo(a): {self.ui.input_psychologist.text()} \nHorário: {self.ui.input_time.text()} \nData: {self.ui.input_data_make.text()}")
+
     # Altera entre QLineEdit
     def next_qlineedit(self):
+        # Page de registrar Paciente
         indentificador_qlineedit = self.sender()
         if indentificador_qlineedit == self.ui.input_name:
             self.ui.input_email.setFocus()
@@ -91,8 +106,12 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
             self.ui.input_password_confirme.setFocus()
         elif indentificador_qlineedit == self.ui.input_password_confirme:
             self.ui.button_register.click()
-        
-            
+
+        # Page de marcar consulta
+        if indentificador_qlineedit == self.ui.input_patient:
+            self.ui.input_psychologist.setFocus()
+        elif indentificador_qlineedit == self.ui.input_psychologist:
+            self.ui.button_calendar_make.click()
 
     # abrir calendario para selecionar data de nacimento
     def botao_calendario(self):
@@ -104,8 +123,10 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
 
     # colocar a data recebida
     def atualizar_data(self, date):
-        self.ui.input_data.setDate(date)
-        self.ui.input_data_make.setDate(date)
+        if self.ui.stackedWidget.currentWidget() == self.ui.page_register:
+            self.ui.input_data.setDate(date)
+        else:
+            self.ui.input_data_make.setDate(date)
         self.calendar.close()    
 
 class register(QtWidgets.QWidget):
