@@ -1,3 +1,13 @@
+# Pyqt5 Importe
+from PyQt5 import QtWidgets, QtCore 
+import sys
+
+# Banco de dados
+import mysql.connector
+
+# Importa as interface
+from Designer.widget_main import Ui_Sistema_de_Agendamento_Psicologico
+
 # Classe principal(superClass)
 class Pessoas:
     # Informações de Cadastro
@@ -14,7 +24,31 @@ class Pessoas:
 
     # Cadastrar Pessoa
     def Cadastrar(self):
-        pass
+        try:
+            # Conectar ao banco de dados MySQL
+            conn = mysql.connector.connect(
+                host="127.0.0.1",
+                user="root",
+                password="",
+                database="banco_de_dados_agendamento_psicologia"
+            )
+
+            cursor = conn.cursor()
+
+            # Inserir dados na tabela usuarios
+            cursor.execute("""
+                INSERT INTO usuarios (nome, data_nascimento, sexo, cpf, email, senha, telefone, endereco, tipo)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, 'paciente')
+            """, (self.nome, self.data_nascimento, self.sexo, self.cpf, self.email, self.senha, self.telefone, self.endereco))
+
+            conn.commit()  # Confirma a transação
+            print("Usuário cadastrado com sucesso.")
+
+        except mysql.connector.Error as err:
+            print(f"Erro: {err}")
+        finally:
+            cursor.close()
+            conn.close()
 
     # Atualizar informações do cadastro
     def Atualizar_informações(self):

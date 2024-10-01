@@ -1,5 +1,9 @@
+# Pyqt5 Importe
 from PyQt5 import QtWidgets, QtCore 
 import sys
+
+# Banco de dados
+import mysql.connector
 
 # Importa as classes
 import Classes.Classe_Agenda
@@ -79,7 +83,19 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
 
     def registrar(self):
         if self.ui.input_password.text() == self.ui.input_password_confirme.text():
-            print(f"Nome: {self.ui.input_name.text()} \nData de Nacimento: {self.ui.input_data.text()} \nCPF: {self.ui.input_cpf.text()} \nSexo: {self.ui.input_sexo.text()} \nCelular: {self.ui.input_phone.text()} \nEndereço: {self.ui.input_adress.text()} \nEmail: {self.ui.input_email.text()} \nSenha: {self.ui.input_password.text()}")
+            # Cria uma nova instância de Pessoas
+            cadastrar_usuario = Classes.Classes_Pessoas.Pessoas(
+                nome=self.ui.input_name.text(),
+                data_nascimento=self.ui.input_data.text(),  # Certifique-se de que o formato está correto
+                sexo=self.ui.input_sexo.text(),
+                cpf=self.ui.input_cpf.text(),
+                email=self.ui.input_email.text(),
+                senha=self.ui.input_password.text(),
+                telefone=self.ui.input_phone.text(),
+                endereco=self.ui.input_adress.text()
+            )
+            # Chama o método Cadastrar
+            cadastrar_usuario.Cadastrar()
         else:
             print("As senhas não são iguais.")
 
