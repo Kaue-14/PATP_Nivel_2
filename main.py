@@ -83,17 +83,19 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
 
     def registrar(self):
         if self.ui.input_password.text() == self.ui.input_password_confirme.text():
-            # Cria uma nova instância de Pessoas
+            
+            # Cadastrar uma nova pessoa
             cadastrar_usuario = Classes.Classes_Pessoas.Pessoas(
-                nome=self.ui.input_name.text(),
-                data_nascimento=self.ui.input_data.text(),  # Certifique-se de que o formato está correto
-                sexo=self.ui.input_sexo.text(),
-                cpf=self.ui.input_cpf.text(),
-                email=self.ui.input_email.text(),
-                senha=self.ui.input_password.text(),
-                telefone=self.ui.input_phone.text(),
-                endereco=self.ui.input_adress.text()
+                nome = self.ui.input_name.text(),
+                data_nascimento = self.ui.input_data.text(),  # Certifique-se de que o formato está correto
+                sexo = self.ui.input_sexo.text(),
+                cpf = self.ui.input_cpf.text(),
+                email = self.ui.input_email.text(),
+                senha = self.ui.input_password.text(),
+                telefone = self.ui.input_phone.text(),
+                endereco = self.ui.input_adress.text()
             )
+            
             # Chama o método Cadastrar
             cadastrar_usuario.Cadastrar()
         else:
