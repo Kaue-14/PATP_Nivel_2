@@ -24,6 +24,9 @@ class Pessoas:
 
     # Cadastrar Pessoa
     def Cadastrar(self):
+        # Bug no meu pc
+        conn = None
+        cursor = None
         try:
             # Conectar ao banco de dados MySQL
             conn = mysql.connector.connect(
@@ -41,14 +44,16 @@ class Pessoas:
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, 'paciente')
             """, (self.nome, self.data_nascimento, self.sexo, self.cpf, self.email, self.senha, self.telefone, self.endereco))
 
-            conn.commit()  # Confirma a transação
+            conn.commit()
             print("Usuário cadastrado com sucesso.")
 
         except mysql.connector.Error as err:
             print(f"Erro: {err}")
         finally:
-            cursor.close()
-            conn.close()
+            if cursor is not None:
+                cursor.close()
+            if conn is not None:
+              conn.close()
 
     # Atualizar informações do cadastro
     def Atualizar_informações(self):

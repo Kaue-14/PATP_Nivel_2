@@ -145,39 +145,6 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
             self.ui.input_data_make.setDate(date)
         self.calendar.close()    
 
-class register(QtWidgets.QWidget):
-    def __init__(self):
-        super(register, self).__init__()
-        self.ui = Ui_Register()
-        self.ui.setupUi(self)
-
-        # Remover barra da janela e deixar o fundo transparente
-        # self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
-        # self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
-        
-        self.ui.button_calendar.clicked.connect(self.botao_calendario)
-
-        self.ui.button_register.clicked.connect(self.registrar)
-
-    def registrar(self):
-        if self.ui.input_password.text() == self.ui.input_password_confirme.text():
-            print(f"Nome: {self.ui.input_name.text()} \nData de Nacimento: {self.ui.input_data.text()} \nCPF: {self.ui.input_cpf.text()} \nSexo: {self.ui.input_sexo.text()} \nCelular: {self.ui.input_phone.text()} \nEndereço: {self.ui.input_adress.text()} \nEmail: {self.ui.input_email.text()} \nSenha: {self.ui.input_password.text()}")
-        else:
-            print("As senhas não são iguais.")
-
-    # abrir calendario para selecionar data de nacimento
-    def botao_calendario(self):
-        self.calendar = calendario()
-        self.calendar.show()
-
-        # receber a data
-        self.calendar.data_selected.connect(self.atualizar_data)
-
-    # colocar a data recebida
-    def atualizar_data(self, date):
-        self.ui.input_data.setDate(date)
-        self.calendar.close()
-
 class calendario(QtWidgets.QWidget):
     data_selected = QtCore.pyqtSignal(QtCore.QDate)
 
