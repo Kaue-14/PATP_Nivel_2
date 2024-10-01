@@ -33,10 +33,7 @@ class login(QtWidgets.QWidget):
         self.ui.input_password.returnPressed.connect(self.next_qlineedit)
 
     def botao_login(self):
-        self.psy = sistema_de_agendamento_psicologico()
-        self.psy.show()
-        self.close()
-        print(f"Usuário: {self.ui.input_user.text()} \nSenha: {self.ui.input_password.text()}")
+        Classes.Classes_Pessoas.Pessoas.Login(self)
         
     # Altera entre QLineEdit
     def next_qlineedit(self):

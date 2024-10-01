@@ -6,6 +6,7 @@ import sys
 import mysql.connector
 
 # Importa as interface
+import main
 from Designer.widget_main import Ui_Sistema_de_Agendamento_Psicologico
 
 # Classe principal(superClass)
@@ -61,7 +62,10 @@ class Pessoas:
 
     # Fazer login no sistema
     def Login(self):
-        pass
+        self.psy = main.sistema_de_agendamento_psicologico()
+        self.psy.show()
+        self.close()
+        print(f"Usuário: {self.ui.input_user.text()} \nSenha: {self.ui.input_password.text()}")
 
 # Classe para os profissionais da área
 class Psicologo(Pessoas):
