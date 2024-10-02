@@ -39,11 +39,18 @@ class Pessoas:
 
             cursor = conn.cursor()
 
+            # Converteções para formato adequado
+            data_nascimento = self.data_nascimento.toString("yyyy-MM-dd")
+            if self.sexo == "Masculino":
+                sexo = 'M'
+            elif self.sexo == "Femenino":
+                sexo = 'F'
+
             # Inserir dados na tabela usuarios
-            cursor.execute("""
+            cursor.execute(f"""
                 INSERT INTO usuarios (nome, data_nascimento, sexo, cpf, email, senha, telefone, endereco, tipo)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, 'paciente')
-            """, (self.nome, self.data_nascimento, self.sexo, self.cpf, self.email, self.senha, self.telefone, self.endereco))
+                VALUES ('{self.nome}', '{data_nascimento}', '{sexo}', '{self.cpf}', '{self.email}', '{self.senha}', '{self.telefone}', '{self.endereco}', 'paciente')
+            """)
 
             conn.commit()
             print("Usuário cadastrado com sucesso.")

@@ -11,7 +11,6 @@ import Classes.Classes_Pessoas
 
 # Importa as interface
 from Designer.login import Ui_Login
-from Designer.register import Ui_Register
 from Designer.calendar import Ui_Calendario
 from Designer.widget_main import Ui_Sistema_de_Agendamento_Psicologico
 
@@ -68,7 +67,12 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         self.ui.input_name.returnPressed.connect(self.next_qlineedit)
         self.ui.input_email.returnPressed.connect(self.next_qlineedit)
         self.ui.input_adress.returnPressed.connect(self.next_qlineedit)
-        self.ui.input_sexo.returnPressed.connect(self.next_qlineedit)
+        
+            # Depois de selecionado o sexo muda para o cpf
+        # altera para duas def diferentes para dar bug
+        self.ui.input_sexo.currentIndexChanged.connect(self.next_qlineedit_for_qcombobox)
+        self.ui.input_category.currentIndexChanged.connect(self.next_qlineedit_for_qcombobox)
+        
         self.ui.input_phone.returnPressed.connect(self.next_qlineedit)
         self.ui.input_cpf.returnPressed.connect(self.next_qlineedit)
         self.ui.input_password.returnPressed.connect(self.next_qlineedit)
@@ -84,8 +88,8 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
             # Cadastrar uma nova pessoa
             cadastrar_usuario = Classes.Classes_Pessoas.Pessoas(
                 nome = self.ui.input_name.text(),
-                data_nascimento = self.ui.input_data.text(),  # Certifique-se de que o formato está correto
-                sexo = self.ui.input_sexo.text(),
+                data_nascimento = self.ui.input_data.date(),
+                sexo = self.ui.input_sexo.currentText(),
                 cpf = self.ui.input_cpf.text(),
                 email = self.ui.input_email.text(),
                 senha = self.ui.input_password.text(),
@@ -106,13 +110,13 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         # Page de registrar Paciente
         indentificador_qlineedit = self.sender()
         if indentificador_qlineedit == self.ui.input_name:
-            self.ui.input_email.setFocus()
+            self.ui.button_calendar.click()
         elif indentificador_qlineedit == self.ui.input_email:
             self.ui.input_adress.setFocus()
         elif indentificador_qlineedit == self.ui.input_adress:
             self.ui.input_phone.setFocus()
         elif indentificador_qlineedit == self.ui.input_phone:
-            self.ui.input_sexo.setFocus()
+            self.ui.input_sexo.showPopup()
         elif indentificador_qlineedit == self.ui.input_sexo:
             self.ui.input_cpf.setFocus()
         elif indentificador_qlineedit == self.ui.input_cpf:
@@ -128,6 +132,19 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         elif indentificador_qlineedit == self.ui.input_psychologist:
             self.ui.button_calendar_make.click()
 
+    # Alterar QComboBox para QLineEdit 
+    def next_qlineedit_for_qcombobox(self):
+        # altera para duas def diferentes para dar bug
+        if self.ui.input_sexo == 'Masculino':
+            self.ui.input_category.showPopup()
+        else:
+            self.ui.input_category.showPopup()
+        if self.ui.input_category == 'Paciente':
+            self.ui.input_cpf.setFocus()
+        else:
+            self.ui.input_cpf.setFocus()
+        
+
     # abrir calendario para selecionar data de nacimento
     def botao_calendario(self):
         self.calendar = calendario()
@@ -140,6 +157,7 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
     def atualizar_data(self, date):
         if self.ui.stackedWidget.currentWidget() == self.ui.page_register:
             self.ui.input_data.setDate(date)
+            self.ui.input_email.setFocus()
         else:
             self.ui.input_data_make.setDate(date)
         self.calendar.close()    
@@ -153,8 +171,8 @@ class calendario(QtWidgets.QWidget):
         self.ui.setupUi(self)
 
         # Remover barra da janela e deixar o fundo transparente
-        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
-        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        # self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        # self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
 
         # Pegar a data
         self.ui.calendar.selectionChanged.connect(self.info_data)
