@@ -32,7 +32,11 @@ class login(QtWidgets.QWidget):
         self.ui.input_password.returnPressed.connect(self.next_qlineedit)
 
     def botao_login(self):
-        Classes.Classes_Pessoas.Pessoas.Login(self)
+        # Enviar as informações para verificar Login
+        Classes.Classes_Pessoas.Pessoas.Login(self,
+            user = self.ui.input_user.text(),
+            senha = self.ui.input_password.text()
+            )
         
     # Altera entre QLineEdit
     def next_qlineedit(self):
@@ -68,10 +72,9 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         self.ui.input_email.returnPressed.connect(self.next_qlineedit)
         self.ui.input_adress.returnPressed.connect(self.next_qlineedit)
         
-            # Depois de selecionado o sexo muda para o cpf
-        # altera para duas def diferentes para dar bug
+            # Depois de selecionado o QComboBox mudar para QLineEdit
         self.ui.input_sexo.currentIndexChanged.connect(self.next_qlineedit_for_qcombobox)
-        self.ui.input_category.currentIndexChanged.connect(self.next_qlineedit_for_qcombobox)
+        self.ui.input_category.currentIndexChanged.connect(self.next_qlineedit_for_qcombobox_2)
         
         self.ui.input_phone.returnPressed.connect(self.next_qlineedit)
         self.ui.input_cpf.returnPressed.connect(self.next_qlineedit)
@@ -94,7 +97,8 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
                 email = self.ui.input_email.text(),
                 senha = self.ui.input_password.text(),
                 telefone = self.ui.input_phone.text(),
-                endereco = self.ui.input_adress.text()
+                endereco = self.ui.input_adress.text(),
+                categoria = self.ui.input_category.currentText()
             )
             
             # Chama o método Cadastrar
@@ -134,11 +138,13 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
 
     # Alterar QComboBox para QLineEdit 
     def next_qlineedit_for_qcombobox(self):
-        # altera para duas def diferentes para dar bug
         if self.ui.input_sexo == 'Masculino':
             self.ui.input_category.showPopup()
         else:
             self.ui.input_category.showPopup()
+    
+    def next_qlineedit_for_qcombobox_2(self):
+
         if self.ui.input_category == 'Paciente':
             self.ui.input_cpf.setFocus()
         else:

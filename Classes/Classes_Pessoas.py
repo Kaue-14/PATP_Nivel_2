@@ -12,7 +12,7 @@ from Designer.widget_main import Ui_Sistema_de_Agendamento_Psicologico
 # Classe principal(superClass)
 class Pessoas:
     # Informações de Cadastro
-    def __init__(self, nome, data_nascimento, sexo, cpf, email, senha, telefone, endereco):
+    def __init__(self, nome, data_nascimento, sexo, cpf, email, senha, telefone, endereco, categoria):
         self.nome = nome
         self.data_nascimento = data_nascimento
         self.sexo = sexo
@@ -21,7 +21,7 @@ class Pessoas:
         self.senha = senha
         self.telefone = telefone
         self.endereco = endereco
-        pass
+        self.categoria = categoria
 
     # Cadastrar Pessoa
     def Cadastrar(self):
@@ -34,7 +34,7 @@ class Pessoas:
                 host="127.0.0.1",
                 user="root",
                 password="",
-                database="banco_de_dados_agendamento_psicologia"
+                database="Banco_de_Usuarios"
             )
 
             cursor = conn.cursor()
@@ -46,10 +46,15 @@ class Pessoas:
             elif self.sexo == "Femenino":
                 sexo = 'F'
 
+            if self.categoria == "Paciente":
+                categoria = "Paciente"
+            elif self.categoria == "Psicólogo(a)":
+                categoria = "Psicólogo(a)"
+
             # Inserir dados na tabela usuarios
             cursor.execute(f"""
-                INSERT INTO usuarios (nome, data_nascimento, sexo, cpf, email, senha, telefone, endereco, tipo)
-                VALUES ('{self.nome}', '{data_nascimento}', '{sexo}', '{self.cpf}', '{self.email}', '{self.senha}', '{self.telefone}', '{self.endereco}', 'paciente')
+                INSERT INTO usuarios (nome, data_nascimento, sexo, cpf, email, senha, telefone, endereco, categoria)
+                VALUES ('{self.nome}', '{data_nascimento}', '{sexo}', '{self.cpf}', '{self.email}', '{self.senha}', '{self.telefone}', '{self.endereco}', '{categoria}')
             """)
 
             conn.commit()
@@ -68,11 +73,39 @@ class Pessoas:
         pass
 
     # Fazer login no sistema
-    def Login(self):
-        self.psy = main.sistema_de_agendamento_psicologico()
-        self.psy.show()
-        self.close()
-        print(f"Usuário: {self.ui.input_user.text()} \nSenha: {self.ui.input_password.text()}")
+    def Login(self, user, senha):
+        # Bug no meu pc
+        conn = None
+        cursor = None
+        try:
+            # Conectar ao banco de dados MySQL
+            conn = mysql.connector.connect(
+                host="127.0.0.1",
+                user="root",
+                password="",
+                database="Banco_de_Usuarios"
+            )
+
+            cursor = conn.cursor()
+
+            # Pegar informações para Login
+            cursor.execute(f"""Select * From Usuarios Where cpf = '{user}' And senha = '{senha}'""")
+            cursor.fetchall()
+
+            # Verificar as informações do Login
+            if cursor.rowcount == 1:
+                self.psy = main.sistema_de_agendamento_psicologico()
+                self.psy.show()
+                self.close()
+        
+        except mysql.connector.Error as err:
+            print(f"Erro: {err}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+                
 
 # Classe para os profissionais da área
 class Psicologo(Pessoas):

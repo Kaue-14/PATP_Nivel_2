@@ -650,7 +650,7 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
         self.input_sexo.setItemText(2, _translate("Sistema_de_Agendamento_Psicologico", "Masculino"))
         self.input_category.setItemText(0, _translate("Sistema_de_Agendamento_Psicologico", "  Categoria"))
         self.input_category.setItemText(1, _translate("Sistema_de_Agendamento_Psicologico", "Paciente"))
-        self.input_category.setItemText(2, _translate("Sistema_de_Agendamento_Psicologico", "Psicologo(a)"))
+        self.input_category.setItemText(2, _translate("Sistema_de_Agendamento_Psicologico", "Psicólogo(a)"))
         self.input_data_make.setDisplayFormat(_translate("Sistema_de_Agendamento_Psicologico", "dd/MM/yyyy"))
         self.input_patient.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Paciente"))
         self.title_make.setText(_translate("Sistema_de_Agendamento_Psicologico", "Marcar Consulta"))
