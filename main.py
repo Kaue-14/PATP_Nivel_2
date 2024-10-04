@@ -55,31 +55,47 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         # Trocar paginas
         self.ui.Button_main_page.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_main))
         self.ui.Button_register_page.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_register))
+        self.ui.Button_update_page.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_update))
         self.ui.Button_view_page.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_view))
         self.ui.Button_make_page.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_make))
 
         # Usar botões para abrir calendario
         self.ui.button_calendar.clicked.connect(self.botao_calendario)
         self.ui.button_calendar_make.clicked.connect(self.botao_calendario)
+        self.ui.button_calendar_update.clicked.connect(self.botao_calendario)
         
         # Botão de registro e marcar consulta
         self.ui.button_make.clicked.connect(self.marcar_consulta)
         self.ui.button_register.clicked.connect(self.registrar)
 
         # Conectar os QLineEdit
-            # Page de registrar Paciente
+            # Page de registrar Usúario
         self.ui.input_name.returnPressed.connect(self.next_qlineedit)
         self.ui.input_email.returnPressed.connect(self.next_qlineedit)
         self.ui.input_adress.returnPressed.connect(self.next_qlineedit)
         
             # Depois de selecionado o QComboBox mudar para QLineEdit
-        self.ui.input_sexo.currentIndexChanged.connect(self.next_qlineedit_for_qcombobox)
-        self.ui.input_category.currentIndexChanged.connect(self.next_qlineedit_for_qcombobox_2)
+        self.ui.input_sexo.currentIndexChanged.connect(self.next_qlineedit_for_qcombobox_sexo)
+        self.ui.input_category.currentIndexChanged.connect(self.next_qlineedit_for_qcombobox_categoria)
         
         self.ui.input_phone.returnPressed.connect(self.next_qlineedit)
         self.ui.input_cpf.returnPressed.connect(self.next_qlineedit)
         self.ui.input_password.returnPressed.connect(self.next_qlineedit)
         self.ui.input_password_confirme.returnPressed.connect(self.next_qlineedit)
+          
+            # Page de update Usúario
+        self.ui.input_name_update.returnPressed.connect(self.next_qlineedit)
+        self.ui.input_email_update.returnPressed.connect(self.next_qlineedit)
+        self.ui.input_adress_update.returnPressed.connect(self.next_qlineedit)
+        
+            # Depois de selecionado o QComboBox mudar para QLineEdit
+        self.ui.input_sexo_update.currentIndexChanged.connect(self.next_qlineedit_for_qcombobox_sexo)
+        self.ui.input_category_update.currentIndexChanged.connect(self.next_qlineedit_for_qcombobox_categoria)
+        
+        self.ui.input_phone_update.returnPressed.connect(self.next_qlineedit)
+        self.ui.input_cpf_update.returnPressed.connect(self.next_qlineedit)
+        self.ui.input_password_update.returnPressed.connect(self.next_qlineedit)
+        self.ui.input_password_confirme_update.returnPressed.connect(self.next_qlineedit)
 
             # Page de marcar consultas
         self.ui.input_patient.returnPressed.connect(self.next_qlineedit)
@@ -111,7 +127,7 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
 
     # Altera entre QLineEdit
     def next_qlineedit(self):
-        # Page de registrar Paciente
+            # Page de registrar Usúarios
         indentificador_qlineedit = self.sender()
         if indentificador_qlineedit == self.ui.input_name:
             self.ui.button_calendar.click()
@@ -129,26 +145,59 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
             self.ui.input_password_confirme.setFocus()
         elif indentificador_qlineedit == self.ui.input_password_confirme:
             self.ui.button_register.click()
-
-        # Page de marcar consulta
+          
+            # Page de atualizar Usúarios
+        if indentificador_qlineedit == self.ui.input_name_update:
+            self.ui.button_calendar_update.click()
+        elif indentificador_qlineedit == self.ui.input_email_update:
+            self.ui.input_adress_update.setFocus()
+        elif indentificador_qlineedit == self.ui.input_adress_update:
+            self.ui.input_phone_update.setFocus()
+        elif indentificador_qlineedit == self.ui.input_phone_update:
+            self.ui.input_sexo_update.showPopup()
+        elif indentificador_qlineedit == self.ui.input_sexo_update:
+            self.ui.input_cpf_update.setFocus()
+        elif indentificador_qlineedit == self.ui.input_cpf_update:
+            self.ui.input_password_update.setFocus()
+        elif indentificador_qlineedit == self.ui.input_password_update:
+            self.ui.input_password_confirme_update.setFocus()
+        elif indentificador_qlineedit == self.ui.input_password_confirme_update:
+            self.ui.button_update.click()
+            
+            # Page de marcar consulta
         if indentificador_qlineedit == self.ui.input_patient:
             self.ui.input_psychologist.setFocus()
         elif indentificador_qlineedit == self.ui.input_psychologist:
             self.ui.button_calendar_make.click()
 
     # Alterar QComboBox para QLineEdit 
-    def next_qlineedit_for_qcombobox(self):
-        if self.ui.input_sexo == 'Masculino':
-            self.ui.input_category.showPopup()
+    def next_qlineedit_for_qcombobox_sexo(self):
+        if self.ui.stackedWidget.currentWidget() == self.ui.page_register:
+                # page register
+            if self.ui.input_sexo == 'Masculino':
+                self.ui.input_category.showPopup()
+            else:
+                self.ui.input_category.showPopup()
         else:
-            self.ui.input_category.showPopup()
+                # page update
+            if self.ui.input_sexo_update == 'Masculino':
+                self.ui.input_category_update.showPopup()
+            else:
+                self.ui.input_category_update.showPopup()
     
-    def next_qlineedit_for_qcombobox_2(self):
-
-        if self.ui.input_category == 'Paciente':
-            self.ui.input_cpf.setFocus()
+    def next_qlineedit_for_qcombobox_categoria(self):
+        if self.ui.stackedWidget.currentWidget() == self.ui.page_register:
+            # page register
+            if self.ui.input_category == 'Paciente':
+                self.ui.input_cpf.setFocus()
+            else:   
+                self.ui.input_cpf.setFocus()
         else:
-            self.ui.input_cpf.setFocus()
+                # page update
+            if self.ui.input_category_update == 'Paciente':
+                self.ui.input_cpf_update.setFocus()
+            else:
+                self.ui.input_cpf_update.setFocus()
         
 
     # abrir calendario para selecionar data de nacimento
@@ -164,6 +213,9 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         if self.ui.stackedWidget.currentWidget() == self.ui.page_register:
             self.ui.input_data.setDate(date)
             self.ui.input_email.setFocus()
+        elif self.ui.stackedWidget.currentWidget() == self.ui.page_update:
+            self.ui.input_data_update.setDate(date)
+            self.ui.input_email_update.setFocus()
         else:
             self.ui.input_data_make.setDate(date)
         self.calendar.close()    
