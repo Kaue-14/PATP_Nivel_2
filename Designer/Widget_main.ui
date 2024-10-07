@@ -336,76 +336,361 @@ QPushButton:pressed{
        </size>
       </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="1" column="2">
-        <spacer name="horizontalSpacer_2">
+       <item row="2" column="0">
+        <spacer name="horizontalSpacer">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::MinimumExpanding</enum>
+         </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>40</width>
+           <width>60</width>
            <height>20</height>
           </size>
          </property>
         </spacer>
        </item>
-       <item row="1" column="0">
-        <spacer name="horizontalSpacer">
+       <item row="2" column="4">
+        <spacer name="horizontalSpacer_2">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::MinimumExpanding</enum>
+         </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>40</width>
+           <width>60</width>
            <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="1" colspan="3">
+        <widget class="QLabel" name="title_main">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>JetBrains Mono</family>
+           <pointsize>28</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255, 0);</string>
+         </property>
+         <property name="text">
+          <string>Sistema de Agendamento de Psicólogia</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::AutoText</enum>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
           </size>
          </property>
         </spacer>
        </item>
        <item row="1" column="1">
-        <widget class="QLabel" name="label">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap>Main Image Sistema.jpg</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>40</height>
+           <height>60</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="2">
+        <spacer name="horizontalSpacer_9">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
           </size>
          </property>
         </spacer>
        </item>
        <item row="2" column="1">
-        <spacer name="verticalSpacer_2">
+        <widget class="QPushButton" name="Button_register_main">
+         <property name="minimumSize">
+          <size>
+           <width>380</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>JetBrains Mono</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(0, 0, 41), stop:1 rgb(34, 18, 127));
+	color:rgba(255, 255, 255, 210);
+	border-radius:5px;
+}
+
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(17, 9, 84), stop:1 rgb(67, 36, 212));
+}
+
+QPushButton:pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(34, 18, 127), stop:1 rgb(0, 0, 41));
+}</string>
+         </property>
+         <property name="text">
+          <string>  Registrar Pessoas</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>register_icon.png</normaloff>register_icon.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QPushButton" name="Button_update_main">
+         <property name="minimumSize">
+          <size>
+           <width>380</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>JetBrains Mono</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(0, 0, 41), stop:1 rgb(34, 18, 127));
+	color:rgba(255, 255, 255, 210);
+	border-radius:5px;
+}
+
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(17, 9, 84), stop:1 rgb(67, 36, 212));
+}
+
+QPushButton:pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(34, 18, 127), stop:1 rgb(0, 0, 41));
+}</string>
+         </property>
+         <property name="text">
+          <string>  Atualizar  Dados</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>user_icon_update.png</normaloff>user_icon_update.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+         <property name="default">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QPushButton" name="Button_view_main">
+         <property name="minimumSize">
+          <size>
+           <width>380</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>JetBrains Mono</family>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(0, 0, 41), stop:1 rgb(34, 18, 127));
+	color:rgba(255, 255, 255, 210);
+	border-radius:5px;
+}
+
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(17, 9, 84), stop:1 rgb(67, 36, 212));
+}
+
+QPushButton:pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(34, 18, 127), stop:1 rgb(0, 0, 41));
+}</string>
+         </property>
+         <property name="text">
+          <string>  Ver Consultas Marcadas</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>consulta_icon.png</normaloff>consulta_icon.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="3">
+        <widget class="QPushButton" name="Button_make_main">
+         <property name="minimumSize">
+          <size>
+           <width>380</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>JetBrains Mono</family>
+           <pointsize>8</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+           <strikeout>false</strikeout>
+           <kerning>true</kerning>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(0, 0, 41), stop:1 rgb(34, 18, 127));
+	color:rgba(255, 255, 255, 210);
+	border-radius:5px;
+}
+
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(17, 9, 84), stop:1 rgb(67, 36, 212));
+}
+
+QPushButton:pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(34, 18, 127), stop:1 rgb(0, 0, 41));
+}</string>
+         </property>
+         <property name="text">
+          <string>  Marcar Consulta</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>make_icon.png</normaloff>make_icon.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="autoRepeat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <spacer name="verticalSpacer_21">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>40</height>
+           <height>60</height>
           </size>
          </property>
         </spacer>
@@ -836,22 +1121,6 @@ padding-bottom:7px;</string>
          </property>
         </widget>
        </item>
-       <item row="6" column="0">
-        <spacer name="horizontalSpacer_5">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>60</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
        <item row="10" column="2">
         <widget class="QLineEdit" name="input_password_confirme">
          <property name="minimumSize">
@@ -915,22 +1184,6 @@ padding-bottom:7px;</string>
           <size>
            <width>20</width>
            <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="6" column="3">
-        <spacer name="horizontalSpacer_4">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>60</width>
-           <height>20</height>
           </size>
          </property>
         </spacer>
@@ -1104,6 +1357,38 @@ padding-bottom:7px;</string>
          </property>
         </widget>
        </item>
+       <item row="6" column="3">
+        <spacer name="horizontalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>60</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="6" column="0">
+        <spacer name="horizontalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>60</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
       </layout>
       <zorder>frame</zorder>
       <zorder>input_phone</zorder>
@@ -1122,11 +1407,11 @@ padding-bottom:7px;</string>
       <zorder>verticalSpacer_7</zorder>
       <zorder>verticalSpacer_8</zorder>
       <zorder>verticalSpacer_9</zorder>
-      <zorder>horizontalSpacer_4</zorder>
-      <zorder>horizontalSpacer_5</zorder>
       <zorder>input_sexo</zorder>
       <zorder>label_2</zorder>
       <zorder>input_category</zorder>
+      <zorder>horizontalSpacer_4</zorder>
+      <zorder>horizontalSpacer_5</zorder>
      </widget>
      <widget class="QWidget" name="page_update">
       <layout class="QGridLayout" name="gridLayout_4">
@@ -1141,7 +1426,7 @@ padding-bottom:7px;</string>
          <property name="maximumSize">
           <size>
            <width>931</width>
-           <height>120</height>
+           <height>16777215</height>
           </size>
          </property>
          <property name="font">

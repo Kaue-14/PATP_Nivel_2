@@ -58,6 +58,11 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         self.ui.Button_update_page.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_update))
         self.ui.Button_view_page.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_view))
         self.ui.Button_make_page.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_make))
+            # Trocar paginas tela inicial
+        self.ui.Button_register_main.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_register))
+        self.ui.Button_update_main.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_update))
+        self.ui.Button_view_main.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_view))
+        self.ui.Button_make_main.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_make))
 
         # Usar botões para abrir calendario
         self.ui.button_calendar.clicked.connect(self.botao_calendario)
