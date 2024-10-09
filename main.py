@@ -7,12 +7,13 @@ import mysql.connector
 
 # Importa as classes
 import Classes.Classe_Agenda
-import Classes.Classes_Pessoas
+import Classes.Classes_Usuarios
 
 # Importa as interface
 from Designer.login import Ui_Login
 from Designer.calendar import Ui_Calendario
 from Designer.widget_main import Ui_Sistema_de_Agendamento_Psicologico
+from Designer.cadastro_ok import Ui_cadastro_ok
 
 class login(QtWidgets.QWidget):
     def __init__(self):
@@ -33,7 +34,7 @@ class login(QtWidgets.QWidget):
 
     def botao_login(self):
         # Enviar as informações para verificar Login
-        Classes.Classes_Pessoas.Pessoas.Login(self,
+        Classes.Classes_Usuarios.Usuarios.Login(self,
             user = self.ui.input_user.text(),
             senha = self.ui.input_password.text()
             )
@@ -110,7 +111,7 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         if self.ui.input_password.text() == self.ui.input_password_confirme.text():
             
             # Cadastrar uma nova pessoa
-            cadastrar_usuario = Classes.Classes_Pessoas.Pessoas(
+            cadastrar_usuario = Classes.Classes_Usuarios.Usuarios(
                 nome = self.ui.input_name.text(),
                 data_nascimento = self.ui.input_data.date(),
                 sexo = self.ui.input_sexo.currentText(),
@@ -124,6 +125,7 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
             
             # Chama o método Cadastrar
             cadastrar_usuario.Cadastrar()
+            self.confirmacao_cadastro()
         else:
             print("As senhas não são iguais.")
 
@@ -205,6 +207,11 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
                 self.ui.input_cpf_update.setFocus()
         
 
+    # abrir confirmação de Cadastro
+    def confirmacao_cadastro(self):
+        self.confirmacao_cadastro = janela_confirmacao_cadastro()
+        self.confirmacao_cadastro.show()
+
     # abrir calendario para selecionar data de nacimento
     def botao_calendario(self):
         self.calendar = calendario()
@@ -244,6 +251,17 @@ class calendario(QtWidgets.QWidget):
     def info_data(self):
         data_selecionada = self.ui.calendar.selectedDate()
         self.data_selected.emit(data_selecionada)
+
+class janela_confirmacao_cadastro(QtWidgets.QWidget):
+    def __init__(self):
+        super(janela_confirmacao_cadastro, self).__init__()
+        self.ui = Ui_cadastro_ok()
+        self.ui.setupUi(self)
+
+        # Remover barra da janela e deixar o fundo transparente
+        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+
+        self.ui.Button_quit.clicked.connect(self.close)
 
 # Starter
 if __name__ == "__main__":

@@ -10,7 +10,7 @@ import main
 from Designer.widget_main import Ui_Sistema_de_Agendamento_Psicologico
 
 # Classe principal(superClass)
-class Pessoas:
+class Usuarios:
     # Informações de Cadastro
     def __init__(self, nome, data_nascimento, sexo, cpf, email, senha, telefone, endereco, categoria):
         self.nome = nome
@@ -108,9 +108,9 @@ class Pessoas:
                 
 
 # Classe para os profissionais da área
-class Psicologo(Pessoas):
+class Psicologo(Usuarios):
     pass
 
 # Classes dos pacientes
-class Paciente(Pessoas):
+class Paciente(Usuarios):
     pass
