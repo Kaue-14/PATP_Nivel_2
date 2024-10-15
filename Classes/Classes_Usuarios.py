@@ -34,7 +34,7 @@ class Usuarios:
                 host="127.0.0.1",
                 user="root",
                 password="",
-                database="Banco_de_Usuarios"
+                database="Banco_de_psicologico"
             )
 
             cursor = conn.cursor()
@@ -58,7 +58,7 @@ class Usuarios:
             """)
 
             conn.commit()
-            print("Usuário cadastrado com sucesso.")
+            print("Cadastro realizado com sucesso!")
 
         except mysql.connector.Error as err:
             print(f"Erro: {err}")
@@ -83,7 +83,7 @@ class Usuarios:
                 host="127.0.0.1",
                 user="root",
                 password="",
-                database="Banco_de_Usuarios"
+                database="Banco_de_psicologico"
             )
 
             cursor = conn.cursor()

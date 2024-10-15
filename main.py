@@ -1,5 +1,6 @@
 # Pyqt5 Importe
-from PyQt5 import QtWidgets, QtCore 
+from PyQt5 import QtWidgets, QtCore
+from PyQt5.QtCore import QDate
 import sys
 
 # Banco de dados
@@ -52,6 +53,11 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         super(sistema_de_agendamento_psicologico, self).__init__()
         self.ui = Ui_Sistema_de_Agendamento_Psicologico()
         self.ui.setupUi(self)
+
+        # colocar a data atual em todos o QDate
+        self.ui.input_data.setDate(QDate.currentDate())
+        self.ui.input_data_make.setDate(QDate.currentDate())
+        self.ui.input_data_update.setDate(QDate.currentDate())
 
         # Trocar paginas
         self.ui.Button_main_page.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_main))
@@ -209,8 +215,32 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
 
     # abrir confirmação de Cadastro
     def confirmacao_cadastro(self):
-        self.confirmacao_cadastro = janela_confirmacao_cadastro()
+        self.confirmacao_cadastro = janela_confirmacao_cadastro(Classes.Classes_Usuarios.Usuarios.Cadastrar)
         self.confirmacao_cadastro.show()
+
+        self.confirmacao_cadastro.ui.Button_quit.clicked.connect(self.limpar_campo)
+
+    # Função pra limpar os campos prenchidos
+    def limpar_campo(self):
+        if self.ui.stackedWidget.currentWidget() == self.ui.page_register:
+            # limpar os qlineedit
+            self.ui.input_name.clear()
+            self.ui.input_email.clear()
+            self.ui.input_adress.clear()
+            self.ui.input_phone.clear()
+            self.ui.input_cpf.clear()
+            self.ui.input_password.clear()
+            self.ui.input_password_confirme.clear()
+
+            # limpar o qdate
+            self.ui.input_data.setDate(QDate.currentDate())
+
+            # limpar as qcombobox
+            self.ui.input_sexo.setCurrentIndex(0)
+            self.ui.input_category.setCurrentIndex(0)
+        
+        elif self.ui.stackedWidget.currentWidget() == self.ui.page_update:
+            pass
 
     # abrir calendario para selecionar data de nacimento
     def botao_calendario(self):
@@ -259,7 +289,7 @@ class janela_confirmacao_cadastro(QtWidgets.QWidget):
         self.ui.setupUi(self)
 
         # Remover barra da janela e deixar o fundo transparente
-        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        # self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
 
         self.ui.Button_quit.clicked.connect(self.close)
 

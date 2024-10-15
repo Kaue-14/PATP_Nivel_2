@@ -1,6 +1,6 @@
-CREATE DATABASE Banco_de_Usuarios;
+CREATE DATABASE Banco_de_psicologico;
 
-USE Banco_de_Usuarios;
+USE Banco_de_psicologico;
 
 CREATE TABLE Usuarios (
     id_usuario INT PRIMARY KEY AUTO_INCREMENT,  -- chave primária
