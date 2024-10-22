@@ -12,8 +12,8 @@ from Designer.widget_main import Ui_Sistema_de_Agendamento_Psicologico
 # Classe principal(superClass)
 class Usuarios:
     # Informações de Cadastro
-    def __init__(self, nome, data_nascimento, sexo, cpf, email, senha, telefone, endereco, categoria):
-        self.nome = nome
+    def __init__(self, nome_pessoa, data_nascimento, sexo, cpf, email, senha, telefone, endereco, tipo):
+        self.nome_pessoa = nome_pessoa
         self.data_nascimento = data_nascimento
         self.sexo = sexo
         self.cpf = cpf
@@ -21,7 +21,7 @@ class Usuarios:
         self.senha = senha
         self.telefone = telefone
         self.endereco = endereco
-        self.categoria = categoria
+        self.tipo = tipo
 
     # Cadastrar Pessoa
     def Cadastrar(self):
@@ -34,7 +34,7 @@ class Usuarios:
                 host="127.0.0.1",
                 user="root",
                 password="",
-                database="Banco_de_psicologico"
+                database="consultorio_psicologia"
             )
 
             cursor = conn.cursor()
@@ -46,15 +46,15 @@ class Usuarios:
             elif self.sexo == "Femenino":
                 sexo = 'F'
 
-            if self.categoria == "Paciente":
-                categoria = "Paciente"
-            elif self.categoria == "Psicólogo(a)":
-                categoria = "Psicólogo(a)"
+            if self.tipo == "Paciente":
+                tipo = "Paciente"
+            elif self.tipo == "Psicólogo(a)":
+                tipo = "Psicólogo(a)"
 
             # Inserir dados na tabela usuarios
             cursor.execute(f"""
-                INSERT INTO usuarios (nome, data_nascimento, sexo, cpf, email, senha, telefone, endereco, categoria)
-                VALUES ('{self.nome}', '{data_nascimento}', '{sexo}', '{self.cpf}', '{self.email}', '{self.senha}', '{self.telefone}', '{self.endereco}', '{categoria}')
+                INSERT INTO usuarios (nome_pessoa, data_nascimento, sexo, cpf, email, senha, telefone, endereco, tipo)
+                VALUES ('{self.nome_pessoa}', '{data_nascimento}', '{sexo}', '{self.cpf}', '{self.email}', '{self.senha}', '{self.telefone}', '{self.endereco}', '{tipo}')
             """)
 
             conn.commit()
@@ -83,7 +83,7 @@ class Usuarios:
                 host="127.0.0.1",
                 user="root",
                 password="",
-                database="Banco_de_psicologico"
+                database="consultorio_psicologia"
             )
 
             cursor = conn.cursor()

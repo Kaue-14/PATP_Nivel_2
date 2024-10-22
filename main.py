@@ -1,4 +1,4 @@
-# Pyqt5 Importe
+# Importa as coisas do Pyqt5
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtCore import QDate
 import sys
@@ -118,7 +118,7 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
             
             # Cadastrar uma nova pessoa
             cadastrar_usuario = Classes.Classes_Usuarios.Usuarios(
-                nome = self.ui.input_name.text(),
+                nome_pessoa = self.ui.input_name.text(),
                 data_nascimento = self.ui.input_data.date(),
                 sexo = self.ui.input_sexo.currentText(),
                 cpf = self.ui.input_cpf.text(),
@@ -126,7 +126,7 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
                 senha = self.ui.input_password.text(),
                 telefone = self.ui.input_phone.text(),
                 endereco = self.ui.input_adress.text(),
-                categoria = self.ui.input_category.currentText()
+                tipo = self.ui.input_category.currentText()
             )
             
             # Chama o método Cadastrar
@@ -215,7 +215,7 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
 
     # abrir confirmação de Cadastro
     def confirmacao_cadastro(self):
-        self.confirmacao_cadastro = janela_confirmacao_cadastro(Classes.Classes_Usuarios.Usuarios.Cadastrar)
+        self.confirmacao_cadastro = janela_confirmacao_cadastro()
         self.confirmacao_cadastro.show()
 
         self.confirmacao_cadastro.ui.Button_quit.clicked.connect(self.limpar_campo)
@@ -289,7 +289,7 @@ class janela_confirmacao_cadastro(QtWidgets.QWidget):
         self.ui.setupUi(self)
 
         # Remover barra da janela e deixar o fundo transparente
-        # self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
 
         self.ui.Button_quit.clicked.connect(self.close)
 
