@@ -1,0 +1,99 @@
+CREATE DATABASE consultoriov1;
+
+USE consultoriov1;
+
+
+
+CREATE TABLE usuarios1 (
+    id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+    nome_pessoa VARCHAR(100) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    sexo ENUM('M', 'F') NOT NULL,
+    cpf VARCHAR(11) NOT NULL UNIQUE,
+    email VARCHAR(100),
+    senha VARCHAR(255) NOT NULL,
+    telefone VARCHAR(15),
+    endereco VARCHAR(255),
+    tipo ENUM('admin', 'psicologo', 'paciente') DEFAULT 'paciente',
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE pacientes1 (
+    id_paciente INT PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT NOT NULL,
+    historico_consultas TEXT,
+    possui_alergias ENUM('sim', 'nao') DEFAULT 'nao',
+    descricao_alergias TEXT,
+    possui_plano_saude ENUM('sim', 'nao') DEFAULT 'nao',
+    CONSTRAINT fk_pacientes_usuarios FOREIGN KEY (id_usuario) REFERENCES usuarios1(id_usuario)
+);
+
+
+CREATE TABLE psicologos1 (
+    id_psicologo INT PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT NOT NULL,
+    especialidade VARCHAR(100),
+    registro_profissional VARCHAR(20),
+    experiencia TEXT,
+    horario_atendimento VARCHAR(255),
+    CONSTRAINT fk_psicologos_usuarios FOREIGN KEY (id_usuario) REFERENCES usuarios1(id_usuario)
+);
+
+CREATE TABLE agendamentos1 (
+    id_agendamento INT PRIMARY KEY AUTO_INCREMENT,
+    id_paciente INT NOT NULL,
+    id_psicologo INT NOT NULL,
+    data_hora DATETIME NOT NULL,
+    status ENUM('agendado', 'cancelado', 'concluído') DEFAULT 'agendado',
+    observacoes TEXT,
+    CONSTRAINT fk_agendamento_paciente FOREIGN KEY (id_paciente) REFERENCES pacientes1(id_paciente),
+    CONSTRAINT fk_agendamento_psicologo FOREIGN KEY (id_psicologo) REFERENCES psicologos1(id_psicologo)
+);
+
+
+
+INSERT INTO usuarios1 (nome_pessoa, data_nascimento, sexo, cpf, email, senha, telefone, endereco, tipo)
+VALUES 
+('Maria Souza', '1992-06-15', 'F', '98765432100', 'maria.souza@gmail.com', 'senha_segura', '054987654321', 'Rua Paciente, 45', 'paciente'),
+('Carlos Mendes', '1985-08-20', 'M', '01234567890', 'carlos.mendes@gmail.com', 'carlos123', '054912345678', 'Rua Clínica, 98', 'paciente'),
+('Dr. João Silva', '1980-03-10', 'M', '1234567019', 'joao.silva@gmail.com', 'senha_hash', '054998765432', 'Rua Psicologia, 123', 'psicologo');
+
+
+INSERT INTO pacientes1 (id_usuario, historico_consultas, possui_alergias, descricao_alergias, possui_plano_saude)
+VALUES 
+(1, 'Consulta inicial em 2024', 'nao', '', 'sim'),
+(2, 'Histórico limpo', 'nao', '', 'nao');
+
+
+INSERT INTO psicologos1 (id_usuario, especialidade, registro_profissional, experiencia, horario_atendimento)
+VALUES 
+(3, 'Psicologia Clínica', 'CRP123456', '10 anos de experiência', 'Seg-Sex 08:00-18:00');
+
+
+INSERT INTO agendamentos1 (id_paciente, id_psicologo, data_hora, status, observacoes)
+VALUES 
+(1, 1, '2024-10-25 14:00:00', 'agendado', 'Primeira consulta'),
+(2, 1, '2024-10-26 09:00:00', 'agendado', 'Consulta de acompanhamento');
+
+
+SELECT 
+    c.nome_pessoa AS nome_paciente,
+    e.nome_pessoa AS nome_psicologo,
+    a.data_hora,
+    a.status,
+    a.observacoes,
+    b.historico_consultas,
+    d.especialidade
+FROM 
+    agendamentos1 a, 
+    pacientes1 b, 
+    usuarios1 c, 
+    psicologos1 d, 
+    usuarios1 e
+WHERE 
+    a.id_paciente = b.id_paciente
+    AND b.id_usuario = c.id_usuario
+    AND a.id_psicologo = d.id_psicologo
+    AND d.id_usuario = e.id_usuario;
+
