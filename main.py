@@ -112,7 +112,8 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
             # Page de marcar consultas
         self.ui.input_patient.returnPressed.connect(self.next_qlineedit)
         self.ui.input_psychologist.returnPressed.connect(self.next_qlineedit)
-
+        self.ui.input_observacao.returnPressed.connect(self.next_qlineedit)
+        
     def registrar(self):
         if self.ui.input_password.text() == self.ui.input_password_confirme.text():
             
@@ -136,8 +137,15 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
             print("As senhas não são iguais.")
 
     def marcar_consulta(self):
-        print(f"Paciente: {self.ui.input_patient.text()} \nPsicólogo(a): {self.ui.input_psychologist.text()} \nHorário: {self.ui.input_time.text()} \nData: {self.ui.input_data_make.text()}")
-
+        marcar_consulta = Classes.Classe_Agenda.Agenda.Marca_Consulta(
+            data = self.ui.input_data_make.date(),
+            hora = self.ui.input_time.currentText(),
+            paciente = self.ui.input_patient.text(),
+            psicologo = self.ui.input_psychologist.text(),
+            observacoes = self.ui.input_observacao.text()
+        )
+        marcar_consulta.Marca_Consulta()
+        
     # Altera entre QLineEdit
     def next_qlineedit(self):
             # Page de registrar Usúarios
@@ -181,6 +189,8 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         if indentificador_qlineedit == self.ui.input_patient:
             self.ui.input_psychologist.setFocus()
         elif indentificador_qlineedit == self.ui.input_psychologist:
+            self.ui.input_observacao.setFocus()
+        elif indentificador_qlineedit == self.ui.input_observacao:
             self.ui.button_calendar_make.click()
 
     # Alterar QComboBox para QLineEdit 
@@ -191,7 +201,7 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
                 self.ui.input_category.showPopup()
             else:
                 self.ui.input_category.showPopup()
-        else:
+        elif self.ui.stackedWidget.currentWidget()  == self.ui.page_update:
                 # page update
             if self.ui.input_sexo_update == 'Masculino':
                 self.ui.input_category_update.showPopup()
@@ -211,7 +221,6 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
                 self.ui.input_cpf_update.setFocus()
             else:
                 self.ui.input_cpf_update.setFocus()
-        
 
     # abrir confirmação de Cadastro
     def confirmacao_cadastro(self):
@@ -260,6 +269,7 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
             self.ui.input_email_update.setFocus()
         else:
             self.ui.input_data_make.setDate(date)
+            self.ui.input_time.showPopup()
         self.calendar.close()    
 
 class calendario(QtWidgets.QWidget):

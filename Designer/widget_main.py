@@ -335,53 +335,10 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
         self.page_register.setObjectName("page_register")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.page_register)
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.input_name = QtWidgets.QLineEdit(self.page_register)
-        self.input_name.setMinimumSize(QtCore.QSize(300, 60))
-        self.input_name.setMaximumSize(QtCore.QSize(300, 16777215))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(10)
-        self.input_name.setFont(font)
-        self.input_name.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
-"border:none;\n"
-"border-bottom:4px solid rgb(67, 36, 212);\n"
-"color:rgba(0, 0, 0);\n"
-"padding-bottom:7px;")
-        self.input_name.setEchoMode(QtWidgets.QLineEdit.Normal)
-        self.input_name.setObjectName("input_name")
-        self.gridLayout_2.addWidget(self.input_name, 2, 1, 1, 1)
-        self.title_register = QtWidgets.QLabel(self.page_register)
-        self.title_register.setMinimumSize(QtCore.QSize(0, 120))
-        self.title_register.setMaximumSize(QtCore.QSize(931, 120))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(28)
-        font.setBold(True)
-        font.setWeight(75)
-        self.title_register.setFont(font)
-        self.title_register.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.title_register.setStyleSheet("color:rgba(0, 0, 0, 200);\n"
-"background-color: rgba(255, 255, 255, 0);")
-        self.title_register.setAlignment(QtCore.Qt.AlignCenter)
-        self.title_register.setObjectName("title_register")
-        self.gridLayout_2.addWidget(self.title_register, 0, 1, 1, 2)
-        self.input_password = QtWidgets.QLineEdit(self.page_register)
-        self.input_password.setMinimumSize(QtCore.QSize(300, 60))
-        self.input_password.setMaximumSize(QtCore.QSize(300, 16777215))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(10)
-        self.input_password.setFont(font)
-        self.input_password.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
-"border:none;\n"
-"border-bottom:4px solid rgb(67, 36, 212);\n"
-"color:rgba(0, 0, 0, 240);\n"
-"padding-bottom:7px;")
-        self.input_password.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.input_password.setObjectName("input_password")
-        self.gridLayout_2.addWidget(self.input_password, 8, 2, 1, 1)
         spacerItem6 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_2.addItem(spacerItem6, 9, 1, 1, 1)
+        self.gridLayout_2.addItem(spacerItem6, 8, 1, 1, 1)
+        spacerItem7 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_2.addItem(spacerItem7, 3, 1, 1, 1)
         self.input_cpf = QtWidgets.QLineEdit(self.page_register)
         self.input_cpf.setMinimumSize(QtCore.QSize(300, 60))
         self.input_cpf.setMaximumSize(QtCore.QSize(300, 16777215))
@@ -396,11 +353,7 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
 "padding-bottom:7px;")
         self.input_cpf.setEchoMode(QtWidgets.QLineEdit.Normal)
         self.input_cpf.setObjectName("input_cpf")
-        self.gridLayout_2.addWidget(self.input_cpf, 6, 2, 1, 1)
-        spacerItem7 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_2.addItem(spacerItem7, 1, 1, 1, 1)
-        spacerItem8 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_2.addItem(spacerItem8, 11, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.input_cpf, 7, 2, 1, 1)
         self.input_adress = QtWidgets.QLineEdit(self.page_register)
         self.input_adress.setMinimumSize(QtCore.QSize(300, 60))
         self.input_adress.setMaximumSize(QtCore.QSize(300, 16777215))
@@ -415,7 +368,9 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
 "padding-bottom:7px;")
         self.input_adress.setEchoMode(QtWidgets.QLineEdit.Normal)
         self.input_adress.setObjectName("input_adress")
-        self.gridLayout_2.addWidget(self.input_adress, 8, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.input_adress, 9, 1, 1, 1)
+        spacerItem8 = QtWidgets.QSpacerItem(60, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_2.addItem(spacerItem8, 7, 0, 1, 1)
         self.frame = QtWidgets.QFrame(self.page_register)
         self.frame.setMinimumSize(QtCore.QSize(300, 60))
         self.frame.setMaximumSize(QtCore.QSize(300, 60))
@@ -461,103 +416,7 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
         icon6.addPixmap(QtGui.QPixmap("Designer\\calendar_icon.webp"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.button_calendar.setIcon(icon6)
         self.button_calendar.setObjectName("button_calendar")
-        self.gridLayout_2.addWidget(self.frame, 4, 1, 1, 1)
-        spacerItem9 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_2.addItem(spacerItem9, 5, 1, 1, 1)
-        spacerItem10 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_2.addItem(spacerItem10, 7, 1, 1, 1)
-        self.button_register = QtWidgets.QPushButton(self.page_register)
-        self.button_register.setMinimumSize(QtCore.QSize(300, 60))
-        self.button_register.setMaximumSize(QtCore.QSize(300, 16777215))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
-        self.button_register.setFont(font)
-        self.button_register.setStyleSheet("QPushButton{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(0, 0, 41), stop:1 rgb(34, 18, 127));\n"
-"    color:rgba(255, 255, 255, 210);\n"
-"    border-radius:5px;\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(17, 9, 84), stop:1 rgb(67, 36, 212));\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(34, 18, 127), stop:1 rgb(0, 0, 41));\n"
-"}")
-        self.button_register.setObjectName("button_register")
-        self.gridLayout_2.addWidget(self.button_register, 13, 2, 1, 1)
-        self.input_phone = QtWidgets.QLineEdit(self.page_register)
-        self.input_phone.setMinimumSize(QtCore.QSize(300, 60))
-        self.input_phone.setMaximumSize(QtCore.QSize(300, 16777215))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(10)
-        self.input_phone.setFont(font)
-        self.input_phone.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
-"border:none;\n"
-"border-bottom:4px solid rgb(67, 36, 212);\n"
-"color:rgba(0, 0, 0, 240);\n"
-"padding-bottom:7px;")
-        self.input_phone.setEchoMode(QtWidgets.QLineEdit.Normal)
-        self.input_phone.setObjectName("input_phone")
-        self.gridLayout_2.addWidget(self.input_phone, 10, 1, 1, 1)
-        self.input_password_confirme = QtWidgets.QLineEdit(self.page_register)
-        self.input_password_confirme.setMinimumSize(QtCore.QSize(300, 60))
-        self.input_password_confirme.setMaximumSize(QtCore.QSize(300, 16777215))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(10)
-        self.input_password_confirme.setFont(font)
-        self.input_password_confirme.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
-"border:none;\n"
-"border-bottom:4px solid rgb(67, 36, 212);\n"
-"color:rgba(0, 0, 0, 240);\n"
-"padding-bottom:7px;")
-        self.input_password_confirme.setFrame(True)
-        self.input_password_confirme.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.input_password_confirme.setObjectName("input_password_confirme")
-        self.gridLayout_2.addWidget(self.input_password_confirme, 10, 2, 1, 1)
-        spacerItem11 = QtWidgets.QSpacerItem(20, 60, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
-        self.gridLayout_2.addItem(spacerItem11, 14, 1, 1, 1)
-        spacerItem12 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_2.addItem(spacerItem12, 3, 1, 1, 1)
-        self.input_sexo = QtWidgets.QComboBox(self.page_register)
-        self.input_sexo.setMinimumSize(QtCore.QSize(300, 60))
-        self.input_sexo.setMaximumSize(QtCore.QSize(300, 60))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(10)
-        self.input_sexo.setFont(font)
-        self.input_sexo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.input_sexo.setStyleSheet("#input_sexo{\n"
-"background-color:rgba(0, 0, 0, 0);\n"
-"border: none;\n"
-"border-bottom:4px solid rgb(67, 36, 212);\n"
-"color:rgba(0, 0, 0, 240);\n"
-"padding-bottom:7px;\n"
-"}\n"
-"#input_sexo QListView{\n"
-"background-color:rgba(255, 255, 255);\n"
-"color:rgba(0, 0, 0);\n"
-"}")
-        self.input_sexo.setObjectName("input_sexo")
-        self.input_sexo.addItem("")
-        self.input_sexo.addItem("")
-        self.input_sexo.addItem("")
-        self.gridLayout_2.addWidget(self.input_sexo, 13, 1, 1, 1)
-        self.label_2 = QtWidgets.QLabel(self.page_register)
-        self.label_2.setMinimumSize(QtCore.QSize(60, 60))
-        self.label_2.setMaximumSize(QtCore.QSize(120, 120))
-        self.label_2.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap("Designer\\Logo_ideau.png"))
-        self.label_2.setScaledContents(True)
-        self.label_2.setObjectName("label_2")
-        self.gridLayout_2.addWidget(self.label_2, 2, 2, 1, 1)
+        self.gridLayout_2.addWidget(self.frame, 5, 1, 1, 1)
         self.input_category = QtWidgets.QComboBox(self.page_register)
         self.input_category.setMinimumSize(QtCore.QSize(300, 60))
         self.input_category.setMaximumSize(QtCore.QSize(300, 60))
@@ -581,7 +440,61 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
         self.input_category.addItem("")
         self.input_category.addItem("")
         self.input_category.addItem("")
-        self.gridLayout_2.addWidget(self.input_category, 4, 2, 1, 1)
+        self.gridLayout_2.addWidget(self.input_category, 5, 2, 1, 1)
+        self.button_register = QtWidgets.QPushButton(self.page_register)
+        self.button_register.setMinimumSize(QtCore.QSize(300, 60))
+        self.button_register.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_register.setFont(font)
+        self.button_register.setStyleSheet("QPushButton{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(0, 0, 41), stop:1 rgb(34, 18, 127));\n"
+"    color:rgba(255, 255, 255, 210);\n"
+"    border-radius:5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(17, 9, 84), stop:1 rgb(67, 36, 212));\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(34, 18, 127), stop:1 rgb(0, 0, 41));\n"
+"}")
+        self.button_register.setObjectName("button_register")
+        self.gridLayout_2.addWidget(self.button_register, 14, 2, 1, 1)
+        spacerItem9 = QtWidgets.QSpacerItem(60, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_2.addItem(spacerItem9, 7, 3, 1, 1)
+        spacerItem10 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_2.addItem(spacerItem10, 10, 1, 1, 1)
+        spacerItem11 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_2.addItem(spacerItem11, 1, 1, 1, 1)
+        self.label_2 = QtWidgets.QLabel(self.page_register)
+        self.label_2.setMinimumSize(QtCore.QSize(60, 60))
+        self.label_2.setMaximumSize(QtCore.QSize(120, 120))
+        self.label_2.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_2.setText("")
+        self.label_2.setPixmap(QtGui.QPixmap("Designer\\Logo_ideau.png"))
+        self.label_2.setScaledContents(True)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout_2.addWidget(self.label_2, 2, 2, 1, 1)
+        self.input_password = QtWidgets.QLineEdit(self.page_register)
+        self.input_password.setMinimumSize(QtCore.QSize(300, 60))
+        self.input_password.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(10)
+        self.input_password.setFont(font)
+        self.input_password.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+"border:none;\n"
+"border-bottom:4px solid rgb(67, 36, 212);\n"
+"color:rgba(0, 0, 0, 240);\n"
+"padding-bottom:7px;")
+        self.input_password.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.input_password.setObjectName("input_password")
+        self.gridLayout_2.addWidget(self.input_password, 9, 2, 1, 1)
         self.input_email = QtWidgets.QLineEdit(self.page_register)
         self.input_email.setMinimumSize(QtCore.QSize(300, 60))
         self.input_email.setMaximumSize(QtCore.QSize(300, 16777215))
@@ -596,11 +509,105 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
 "padding-bottom:7px;")
         self.input_email.setEchoMode(QtWidgets.QLineEdit.Normal)
         self.input_email.setObjectName("input_email")
-        self.gridLayout_2.addWidget(self.input_email, 6, 1, 1, 1)
-        spacerItem13 = QtWidgets.QSpacerItem(60, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_2.addItem(spacerItem13, 6, 3, 1, 1)
-        spacerItem14 = QtWidgets.QSpacerItem(60, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_2.addItem(spacerItem14, 6, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.input_email, 7, 1, 1, 1)
+        spacerItem12 = QtWidgets.QSpacerItem(20, 60, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        self.gridLayout_2.addItem(spacerItem12, 15, 1, 1, 1)
+        self.input_sexo = QtWidgets.QComboBox(self.page_register)
+        self.input_sexo.setMinimumSize(QtCore.QSize(300, 60))
+        self.input_sexo.setMaximumSize(QtCore.QSize(300, 60))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(10)
+        self.input_sexo.setFont(font)
+        self.input_sexo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.input_sexo.setStyleSheet("#input_sexo{\n"
+"background-color:rgba(0, 0, 0, 0);\n"
+"border: none;\n"
+"border-bottom:4px solid rgb(67, 36, 212);\n"
+"color:rgba(0, 0, 0, 240);\n"
+"padding-bottom:7px;\n"
+"}\n"
+"#input_sexo QListView{\n"
+"background-color:rgba(255, 255, 255);\n"
+"color:rgba(0, 0, 0);\n"
+"}")
+        self.input_sexo.setObjectName("input_sexo")
+        self.input_sexo.addItem("")
+        self.input_sexo.addItem("")
+        self.input_sexo.addItem("")
+        self.gridLayout_2.addWidget(self.input_sexo, 14, 1, 1, 1)
+        spacerItem13 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_2.addItem(spacerItem13, 6, 1, 1, 1)
+        spacerItem14 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_2.addItem(spacerItem14, 12, 1, 1, 1)
+        self.input_name = QtWidgets.QLineEdit(self.page_register)
+        self.input_name.setMinimumSize(QtCore.QSize(300, 60))
+        self.input_name.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(10)
+        self.input_name.setFont(font)
+        self.input_name.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+"border:none;\n"
+"border-bottom:4px solid rgb(67, 36, 212);\n"
+"color:rgba(0, 0, 0);\n"
+"padding-bottom:7px;")
+        self.input_name.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.input_name.setObjectName("input_name")
+        self.gridLayout_2.addWidget(self.input_name, 2, 1, 1, 1)
+        self.title_register = QtWidgets.QLabel(self.page_register)
+        self.title_register.setMinimumSize(QtCore.QSize(0, 120))
+        self.title_register.setMaximumSize(QtCore.QSize(931, 120))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(28)
+        font.setBold(True)
+        font.setWeight(75)
+        self.title_register.setFont(font)
+        self.title_register.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.title_register.setStyleSheet("color:rgba(0, 0, 0, 200);\n"
+"background-color: rgba(255, 255, 255, 0);")
+        self.title_register.setAlignment(QtCore.Qt.AlignCenter)
+        self.title_register.setObjectName("title_register")
+        self.gridLayout_2.addWidget(self.title_register, 0, 1, 1, 2)
+        self.input_password_confirme = QtWidgets.QLineEdit(self.page_register)
+        self.input_password_confirme.setMinimumSize(QtCore.QSize(300, 60))
+        self.input_password_confirme.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(10)
+        self.input_password_confirme.setFont(font)
+        self.input_password_confirme.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+"border:none;\n"
+"border-bottom:4px solid rgb(67, 36, 212);\n"
+"color:rgba(0, 0, 0, 240);\n"
+"padding-bottom:7px;")
+        self.input_password_confirme.setFrame(True)
+        self.input_password_confirme.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.input_password_confirme.setObjectName("input_password_confirme")
+        self.gridLayout_2.addWidget(self.input_password_confirme, 11, 2, 1, 1)
+        self.input_phone = QtWidgets.QLineEdit(self.page_register)
+        self.input_phone.setMinimumSize(QtCore.QSize(300, 60))
+        self.input_phone.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(10)
+        self.input_phone.setFont(font)
+        self.input_phone.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+"border:none;\n"
+"border-bottom:4px solid rgb(67, 36, 212);\n"
+"color:rgba(0, 0, 0, 240);\n"
+"padding-bottom:7px;")
+        self.input_phone.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.input_phone.setObjectName("input_phone")
+        self.gridLayout_2.addWidget(self.input_phone, 11, 1, 1, 1)
+        self.label = QtWidgets.QLabel(self.page_register)
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        self.label.setFont(font)
+        self.label.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
+        self.label.setObjectName("label")
+        self.gridLayout_2.addWidget(self.label, 4, 1, 1, 1)
         self.frame.raise_()
         self.input_phone.raise_()
         self.input_password_confirme.raise_()
@@ -614,11 +621,14 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
         self.input_sexo.raise_()
         self.label_2.raise_()
         self.input_category.raise_()
+        self.label.raise_()
         self.stackedWidget.addWidget(self.page_register)
         self.page_update = QtWidgets.QWidget()
         self.page_update.setObjectName("page_update")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.page_update)
         self.gridLayout_4.setObjectName("gridLayout_4")
+        spacerItem15 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_4.addItem(spacerItem15, 10, 1, 1, 1)
         self.title_update = QtWidgets.QLabel(self.page_update)
         self.title_update.setMinimumSize(QtCore.QSize(0, 120))
         self.title_update.setMaximumSize(QtCore.QSize(931, 16777215))
@@ -634,166 +644,21 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
         self.title_update.setAlignment(QtCore.Qt.AlignCenter)
         self.title_update.setObjectName("title_update")
         self.gridLayout_4.addWidget(self.title_update, 0, 1, 1, 2)
-        self.input_adress_update = QtWidgets.QLineEdit(self.page_update)
-        self.input_adress_update.setMinimumSize(QtCore.QSize(300, 60))
-        self.input_adress_update.setMaximumSize(QtCore.QSize(300, 16777215))
+        self.input_email_update = QtWidgets.QLineEdit(self.page_update)
+        self.input_email_update.setMinimumSize(QtCore.QSize(300, 60))
+        self.input_email_update.setMaximumSize(QtCore.QSize(300, 16777215))
         font = QtGui.QFont()
         font.setFamily("JetBrains Mono")
         font.setPointSize(10)
-        self.input_adress_update.setFont(font)
-        self.input_adress_update.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+        self.input_email_update.setFont(font)
+        self.input_email_update.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
 "border:none;\n"
 "border-bottom:4px solid rgb(67, 36, 212);\n"
 "color:rgba(0, 0, 0);\n"
 "padding-bottom:7px;")
-        self.input_adress_update.setEchoMode(QtWidgets.QLineEdit.Normal)
-        self.input_adress_update.setObjectName("input_adress_update")
-        self.gridLayout_4.addWidget(self.input_adress_update, 8, 1, 1, 1)
-        self.input_category_update = QtWidgets.QComboBox(self.page_update)
-        self.input_category_update.setMinimumSize(QtCore.QSize(300, 60))
-        self.input_category_update.setMaximumSize(QtCore.QSize(300, 60))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(10)
-        self.input_category_update.setFont(font)
-        self.input_category_update.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.input_category_update.setStyleSheet("#input_category_update{\n"
-"background-color:rgba(0, 0, 0, 0);\n"
-"border: none;\n"
-"border-bottom:4px solid rgb(67, 36, 212);\n"
-"color:rgba(0, 0, 0, 240);\n"
-"padding-bottom:7px;\n"
-"}\n"
-"#input_category_update QListView{\n"
-"background-color:rgba(255, 255, 255);\n"
-"color:rgba(0, 0, 0);\n"
-"}")
-        self.input_category_update.setObjectName("input_category_update")
-        self.input_category_update.addItem("")
-        self.input_category_update.addItem("")
-        self.input_category_update.addItem("")
-        self.gridLayout_4.addWidget(self.input_category_update, 4, 2, 1, 1)
-        spacerItem15 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_4.addItem(spacerItem15, 9, 1, 1, 1)
-        spacerItem16 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_4.addItem(spacerItem16, 7, 1, 1, 1)
-        self.input_password_update = QtWidgets.QLineEdit(self.page_update)
-        self.input_password_update.setMinimumSize(QtCore.QSize(300, 60))
-        self.input_password_update.setMaximumSize(QtCore.QSize(300, 16777215))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(10)
-        self.input_password_update.setFont(font)
-        self.input_password_update.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
-"border:none;\n"
-"border-bottom:4px solid rgb(67, 36, 212);\n"
-"color:rgba(0, 0, 0, 240);\n"
-"padding-bottom:7px;")
-        self.input_password_update.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.input_password_update.setObjectName("input_password_update")
-        self.gridLayout_4.addWidget(self.input_password_update, 8, 2, 1, 1)
-        spacerItem17 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_4.addItem(spacerItem17, 1, 1, 1, 1)
-        self.input_cpf_update = QtWidgets.QLineEdit(self.page_update)
-        self.input_cpf_update.setMinimumSize(QtCore.QSize(300, 60))
-        self.input_cpf_update.setMaximumSize(QtCore.QSize(300, 16777215))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(10)
-        self.input_cpf_update.setFont(font)
-        self.input_cpf_update.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
-"border:none;\n"
-"border-bottom:4px solid rgb(67, 36, 212);\n"
-"color:rgba(0, 0, 0, 240);\n"
-"padding-bottom:7px;")
-        self.input_cpf_update.setEchoMode(QtWidgets.QLineEdit.Normal)
-        self.input_cpf_update.setObjectName("input_cpf_update")
-        self.gridLayout_4.addWidget(self.input_cpf_update, 6, 2, 1, 1)
-        self.input_name_update = QtWidgets.QLineEdit(self.page_update)
-        self.input_name_update.setMinimumSize(QtCore.QSize(300, 60))
-        self.input_name_update.setMaximumSize(QtCore.QSize(300, 16777215))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(10)
-        self.input_name_update.setFont(font)
-        self.input_name_update.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
-"border:none;\n"
-"border-bottom:4px solid rgb(67, 36, 212);\n"
-"color:rgba(0, 0, 0);\n"
-"padding-bottom:7px;")
-        self.input_name_update.setEchoMode(QtWidgets.QLineEdit.Normal)
-        self.input_name_update.setObjectName("input_name_update")
-        self.gridLayout_4.addWidget(self.input_name_update, 2, 1, 1, 1)
-        spacerItem18 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_4.addItem(spacerItem18, 3, 1, 1, 1)
-        spacerItem19 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_4.addItem(spacerItem19, 11, 1, 1, 1)
-        self.input_sexo_update = QtWidgets.QComboBox(self.page_update)
-        self.input_sexo_update.setMinimumSize(QtCore.QSize(300, 60))
-        self.input_sexo_update.setMaximumSize(QtCore.QSize(300, 60))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(10)
-        self.input_sexo_update.setFont(font)
-        self.input_sexo_update.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.input_sexo_update.setStyleSheet("#input_sexo_update{\n"
-"background-color:rgba(0, 0, 0, 0);\n"
-"border: none;\n"
-"border-bottom:4px solid rgb(67, 36, 212);\n"
-"color:rgba(0, 0, 0, 240);\n"
-"padding-bottom:7px;\n"
-"}\n"
-"#input_sexo_update QListView{\n"
-"background-color:rgba(255, 255, 255);\n"
-"color:rgba(0, 0, 0);\n"
-"}")
-        self.input_sexo_update.setObjectName("input_sexo_update")
-        self.input_sexo_update.addItem("")
-        self.input_sexo_update.addItem("")
-        self.input_sexo_update.addItem("")
-        self.gridLayout_4.addWidget(self.input_sexo_update, 12, 1, 1, 1)
-        spacerItem20 = QtWidgets.QSpacerItem(20, 60, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_4.addItem(spacerItem20, 13, 1, 1, 1)
-        self.button_update = QtWidgets.QPushButton(self.page_update)
-        self.button_update.setMinimumSize(QtCore.QSize(300, 60))
-        self.button_update.setMaximumSize(QtCore.QSize(300, 16777215))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
-        self.button_update.setFont(font)
-        self.button_update.setStyleSheet("QPushButton{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(0, 0, 41), stop:1 rgb(34, 18, 127));\n"
-"    color:rgba(255, 255, 255, 210);\n"
-"    border-radius:5px;\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(17, 9, 84), stop:1 rgb(67, 36, 212));\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(34, 18, 127), stop:1 rgb(0, 0, 41));\n"
-"}")
-        self.button_update.setObjectName("button_update")
-        self.gridLayout_4.addWidget(self.button_update, 12, 2, 1, 1)
-        self.input_password_confirme_update = QtWidgets.QLineEdit(self.page_update)
-        self.input_password_confirme_update.setMinimumSize(QtCore.QSize(300, 60))
-        self.input_password_confirme_update.setMaximumSize(QtCore.QSize(300, 16777215))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(10)
-        self.input_password_confirme_update.setFont(font)
-        self.input_password_confirme_update.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
-"border:none;\n"
-"border-bottom:4px solid rgb(67, 36, 212);\n"
-"color:rgba(0, 0, 0, 240);\n"
-"padding-bottom:7px;")
-        self.input_password_confirme_update.setFrame(True)
-        self.input_password_confirme_update.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.input_password_confirme_update.setObjectName("input_password_confirme_update")
-        self.gridLayout_4.addWidget(self.input_password_confirme_update, 10, 2, 1, 1)
+        self.input_email_update.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.input_email_update.setObjectName("input_email_update")
+        self.gridLayout_4.addWidget(self.input_email_update, 7, 1, 1, 1)
         self.frame_3 = QtWidgets.QFrame(self.page_update)
         self.frame_3.setMinimumSize(QtCore.QSize(300, 60))
         self.frame_3.setMaximumSize(QtCore.QSize(300, 60))
@@ -837,24 +702,102 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
         self.button_calendar_update.setText("")
         self.button_calendar_update.setIcon(icon6)
         self.button_calendar_update.setObjectName("button_calendar_update")
-        self.gridLayout_4.addWidget(self.frame_3, 4, 1, 1, 1)
-        self.input_email_update = QtWidgets.QLineEdit(self.page_update)
-        self.input_email_update.setMinimumSize(QtCore.QSize(300, 60))
-        self.input_email_update.setMaximumSize(QtCore.QSize(300, 16777215))
+        self.gridLayout_4.addWidget(self.frame_3, 5, 1, 1, 1)
+        self.input_adress_update = QtWidgets.QLineEdit(self.page_update)
+        self.input_adress_update.setMinimumSize(QtCore.QSize(300, 60))
+        self.input_adress_update.setMaximumSize(QtCore.QSize(300, 16777215))
         font = QtGui.QFont()
         font.setFamily("JetBrains Mono")
         font.setPointSize(10)
-        self.input_email_update.setFont(font)
-        self.input_email_update.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+        self.input_adress_update.setFont(font)
+        self.input_adress_update.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
 "border:none;\n"
 "border-bottom:4px solid rgb(67, 36, 212);\n"
 "color:rgba(0, 0, 0);\n"
 "padding-bottom:7px;")
-        self.input_email_update.setEchoMode(QtWidgets.QLineEdit.Normal)
-        self.input_email_update.setObjectName("input_email_update")
-        self.gridLayout_4.addWidget(self.input_email_update, 6, 1, 1, 1)
-        spacerItem21 = QtWidgets.QSpacerItem(60, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_4.addItem(spacerItem21, 6, 0, 1, 1)
+        self.input_adress_update.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.input_adress_update.setObjectName("input_adress_update")
+        self.gridLayout_4.addWidget(self.input_adress_update, 9, 1, 1, 1)
+        spacerItem16 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_4.addItem(spacerItem16, 6, 1, 1, 1)
+        self.input_password_confirme_update = QtWidgets.QLineEdit(self.page_update)
+        self.input_password_confirme_update.setMinimumSize(QtCore.QSize(300, 60))
+        self.input_password_confirme_update.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(10)
+        self.input_password_confirme_update.setFont(font)
+        self.input_password_confirme_update.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+"border:none;\n"
+"border-bottom:4px solid rgb(67, 36, 212);\n"
+"color:rgba(0, 0, 0, 240);\n"
+"padding-bottom:7px;")
+        self.input_password_confirme_update.setFrame(True)
+        self.input_password_confirme_update.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.input_password_confirme_update.setObjectName("input_password_confirme_update")
+        self.gridLayout_4.addWidget(self.input_password_confirme_update, 11, 2, 1, 1)
+        self.input_category_update = QtWidgets.QComboBox(self.page_update)
+        self.input_category_update.setMinimumSize(QtCore.QSize(300, 60))
+        self.input_category_update.setMaximumSize(QtCore.QSize(300, 60))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(10)
+        self.input_category_update.setFont(font)
+        self.input_category_update.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.input_category_update.setStyleSheet("#input_category_update{\n"
+"background-color:rgba(0, 0, 0, 0);\n"
+"border: none;\n"
+"border-bottom:4px solid rgb(67, 36, 212);\n"
+"color:rgba(0, 0, 0, 240);\n"
+"padding-bottom:7px;\n"
+"}\n"
+"#input_category_update QListView{\n"
+"background-color:rgba(255, 255, 255);\n"
+"color:rgba(0, 0, 0);\n"
+"}")
+        self.input_category_update.setObjectName("input_category_update")
+        self.input_category_update.addItem("")
+        self.input_category_update.addItem("")
+        self.input_category_update.addItem("")
+        self.gridLayout_4.addWidget(self.input_category_update, 5, 2, 1, 1)
+        spacerItem17 = QtWidgets.QSpacerItem(60, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem17, 7, 3, 1, 1)
+        spacerItem18 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_4.addItem(spacerItem18, 8, 1, 1, 1)
+        self.input_password_update = QtWidgets.QLineEdit(self.page_update)
+        self.input_password_update.setMinimumSize(QtCore.QSize(300, 60))
+        self.input_password_update.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(10)
+        self.input_password_update.setFont(font)
+        self.input_password_update.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+"border:none;\n"
+"border-bottom:4px solid rgb(67, 36, 212);\n"
+"color:rgba(0, 0, 0, 240);\n"
+"padding-bottom:7px;")
+        self.input_password_update.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.input_password_update.setObjectName("input_password_update")
+        self.gridLayout_4.addWidget(self.input_password_update, 9, 2, 1, 1)
+        self.input_cpf_update = QtWidgets.QLineEdit(self.page_update)
+        self.input_cpf_update.setMinimumSize(QtCore.QSize(300, 60))
+        self.input_cpf_update.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(10)
+        self.input_cpf_update.setFont(font)
+        self.input_cpf_update.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+"border:none;\n"
+"border-bottom:4px solid rgb(67, 36, 212);\n"
+"color:rgba(0, 0, 0, 240);\n"
+"padding-bottom:7px;")
+        self.input_cpf_update.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.input_cpf_update.setObjectName("input_cpf_update")
+        self.gridLayout_4.addWidget(self.input_cpf_update, 7, 2, 1, 1)
+        spacerItem19 = QtWidgets.QSpacerItem(60, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem19, 7, 0, 1, 1)
+        spacerItem20 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_4.addItem(spacerItem20, 3, 1, 1, 1)
         self.input_phone_update = QtWidgets.QLineEdit(self.page_update)
         self.input_phone_update.setMinimumSize(QtCore.QSize(300, 60))
         self.input_phone_update.setMaximumSize(QtCore.QSize(300, 16777215))
@@ -869,19 +812,223 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
 "padding-bottom:7px;")
         self.input_phone_update.setEchoMode(QtWidgets.QLineEdit.Normal)
         self.input_phone_update.setObjectName("input_phone_update")
-        self.gridLayout_4.addWidget(self.input_phone_update, 10, 1, 1, 1)
+        self.gridLayout_4.addWidget(self.input_phone_update, 11, 1, 1, 1)
+        spacerItem21 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_4.addItem(spacerItem21, 12, 1, 1, 1)
         spacerItem22 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_4.addItem(spacerItem22, 5, 1, 1, 1)
-        spacerItem23 = QtWidgets.QSpacerItem(60, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_4.addItem(spacerItem23, 6, 3, 1, 1)
+        self.gridLayout_4.addItem(spacerItem22, 1, 1, 1, 1)
+        spacerItem23 = QtWidgets.QSpacerItem(20, 60, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_4.addItem(spacerItem23, 14, 1, 1, 1)
+        self.input_name_update = QtWidgets.QLineEdit(self.page_update)
+        self.input_name_update.setMinimumSize(QtCore.QSize(300, 60))
+        self.input_name_update.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(10)
+        self.input_name_update.setFont(font)
+        self.input_name_update.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+"border:none;\n"
+"border-bottom:4px solid rgb(67, 36, 212);\n"
+"color:rgba(0, 0, 0);\n"
+"padding-bottom:7px;")
+        self.input_name_update.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.input_name_update.setObjectName("input_name_update")
+        self.gridLayout_4.addWidget(self.input_name_update, 2, 1, 1, 1)
+        self.button_update = QtWidgets.QPushButton(self.page_update)
+        self.button_update.setMinimumSize(QtCore.QSize(300, 60))
+        self.button_update.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_update.setFont(font)
+        self.button_update.setStyleSheet("QPushButton{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(0, 0, 41), stop:1 rgb(34, 18, 127));\n"
+"    color:rgba(255, 255, 255, 210);\n"
+"    border-radius:5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(17, 9, 84), stop:1 rgb(67, 36, 212));\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(34, 18, 127), stop:1 rgb(0, 0, 41));\n"
+"}")
+        self.button_update.setObjectName("button_update")
+        self.gridLayout_4.addWidget(self.button_update, 13, 2, 1, 1)
+        self.input_sexo_update = QtWidgets.QComboBox(self.page_update)
+        self.input_sexo_update.setMinimumSize(QtCore.QSize(300, 60))
+        self.input_sexo_update.setMaximumSize(QtCore.QSize(300, 60))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(10)
+        self.input_sexo_update.setFont(font)
+        self.input_sexo_update.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.input_sexo_update.setStyleSheet("#input_sexo_update{\n"
+"background-color:rgba(0, 0, 0, 0);\n"
+"border: none;\n"
+"border-bottom:4px solid rgb(67, 36, 212);\n"
+"color:rgba(0, 0, 0, 240);\n"
+"padding-bottom:7px;\n"
+"}\n"
+"#input_sexo_update QListView{\n"
+"background-color:rgba(255, 255, 255);\n"
+"color:rgba(0, 0, 0);\n"
+"}")
+        self.input_sexo_update.setObjectName("input_sexo_update")
+        self.input_sexo_update.addItem("")
+        self.input_sexo_update.addItem("")
+        self.input_sexo_update.addItem("")
+        self.gridLayout_4.addWidget(self.input_sexo_update, 13, 1, 1, 1)
+        self.label_3 = QtWidgets.QLabel(self.page_update)
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        self.label_3.setFont(font)
+        self.label_3.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
+        self.label_3.setObjectName("label_3")
+        self.gridLayout_4.addWidget(self.label_3, 4, 1, 1, 1)
         self.stackedWidget.addWidget(self.page_update)
         self.page_view = QtWidgets.QWidget()
         self.page_view.setObjectName("page_view")
+        self.gridLayout_5 = QtWidgets.QGridLayout(self.page_view)
+        self.gridLayout_5.setObjectName("gridLayout_5")
+        self.listWidget = QtWidgets.QListWidget(self.page_view)
+        self.listWidget.setObjectName("listWidget")
+        self.gridLayout_5.addWidget(self.listWidget, 1, 1, 1, 1)
+        spacerItem24 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_5.addItem(spacerItem24, 1, 2, 1, 1)
+        spacerItem25 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        self.gridLayout_5.addItem(spacerItem25, 2, 1, 1, 1)
+        spacerItem26 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_5.addItem(spacerItem26, 1, 0, 1, 1)
+        spacerItem27 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        self.gridLayout_5.addItem(spacerItem27, 0, 1, 1, 1)
         self.stackedWidget.addWidget(self.page_view)
         self.page_make = QtWidgets.QWidget()
         self.page_make.setObjectName("page_make")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.page_make)
         self.gridLayout_3.setObjectName("gridLayout_3")
+        spacerItem28 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem28, 8, 0, 1, 1)
+        spacerItem29 = QtWidgets.QSpacerItem(60, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem29, 4, 4, 1, 1)
+        self.input_observacao = QtWidgets.QLineEdit(self.page_make)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.input_observacao.sizePolicy().hasHeightForWidth())
+        self.input_observacao.setSizePolicy(sizePolicy)
+        self.input_observacao.setMinimumSize(QtCore.QSize(300, 120))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(8)
+        self.input_observacao.setFont(font)
+        self.input_observacao.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+"border:none;\n"
+"border:4px solid rgb(67, 36, 212);\n"
+"border-radius: 7px;\n"
+"color:rgba(0, 0, 0, 240);\n"
+"padding-bottom:7px;")
+        self.input_observacao.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
+        self.input_observacao.setObjectName("input_observacao")
+        self.gridLayout_3.addWidget(self.input_observacao, 8, 1, 1, 1)
+        self.input_time = QtWidgets.QComboBox(self.page_make)
+        self.input_time.setMinimumSize(QtCore.QSize(300, 60))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(10)
+        font.setStyleStrategy(QtGui.QFont.PreferDefault)
+        self.input_time.setFont(font)
+        self.input_time.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.input_time.setStyleSheet("#input_time{\n"
+"background-color:rgba(0, 0, 0, 0);\n"
+"border: none;\n"
+"border-bottom:4px solid rgb(67, 36, 212);\n"
+"color:rgba(0, 0, 0, 240);\n"
+"padding-bottom:7px;\n"
+"}\n"
+"#input_time QListView{\n"
+"background-color:rgba(255, 255, 255);\n"
+"color:rgba(0, 0, 0);\n"
+"}")
+        self.input_time.setObjectName("input_time")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.gridLayout_3.addWidget(self.input_time, 5, 3, 1, 1)
+        spacerItem30 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem30, 8, 4, 1, 1)
+        spacerItem31 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_3.addItem(spacerItem31, 1, 1, 1, 1)
+        self.button_make = QtWidgets.QPushButton(self.page_make)
+        self.button_make.setMinimumSize(QtCore.QSize(301, 60))
+        self.button_make.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_make.setFont(font)
+        self.button_make.setStyleSheet("QPushButton{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(0, 0, 41), stop:1 rgb(34, 18, 127));\n"
+"    color:rgba(255, 255, 255, 210);\n"
+"    border-radius:5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(17, 9, 84), stop:1 rgb(67, 36, 212));\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(34, 18, 127), stop:1 rgb(0, 0, 41));\n"
+"}")
+        self.button_make.setObjectName("button_make")
+        self.gridLayout_3.addWidget(self.button_make, 8, 3, 1, 1)
+        spacerItem32 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_3.addItem(spacerItem32, 10, 2, 1, 1)
+        self.title_make = QtWidgets.QLabel(self.page_make)
+        self.title_make.setMinimumSize(QtCore.QSize(0, 120))
+        self.title_make.setMaximumSize(QtCore.QSize(931, 120))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(28)
+        font.setBold(True)
+        font.setWeight(75)
+        self.title_make.setFont(font)
+        self.title_make.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.title_make.setStyleSheet("color:rgba(0, 0, 0, 200);\n"
+"background-color: rgba(255, 255, 255, 0);")
+        self.title_make.setAlignment(QtCore.Qt.AlignCenter)
+        self.title_make.setObjectName("title_make")
+        self.gridLayout_3.addWidget(self.title_make, 0, 1, 1, 3)
+        self.input_psychologist = QtWidgets.QLineEdit(self.page_make)
+        self.input_psychologist.setMinimumSize(QtCore.QSize(300, 60))
+        self.input_psychologist.setMaximumSize(QtCore.QSize(300, 60))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(10)
+        self.input_psychologist.setFont(font)
+        self.input_psychologist.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+"border:none;\n"
+"border-bottom:4px solid rgb(67, 36, 212);\n"
+"color:rgba(0, 0, 0, 240);\n"
+"padding-bottom:7px;")
+        self.input_psychologist.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.input_psychologist.setObjectName("input_psychologist")
+        self.gridLayout_3.addWidget(self.input_psychologist, 5, 1, 1, 1)
+        spacerItem33 = QtWidgets.QSpacerItem(60, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem33, 3, 0, 1, 1)
         self.frame_2 = QtWidgets.QFrame(self.page_make)
         self.frame_2.setMinimumSize(QtCore.QSize(300, 60))
         self.frame_2.setMaximumSize(QtCore.QSize(300, 60))
@@ -927,7 +1074,13 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
         self.button_calendar_make.setText("")
         self.button_calendar_make.setIcon(icon6)
         self.button_calendar_make.setObjectName("button_calendar_make")
-        self.gridLayout_3.addWidget(self.frame_2, 2, 3, 1, 1)
+        self.gridLayout_3.addWidget(self.frame_2, 3, 3, 1, 1)
+        spacerItem34 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem34, 5, 2, 1, 1)
+        spacerItem35 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_3.addItem(spacerItem35, 7, 1, 1, 1)
+        spacerItem36 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_3.addItem(spacerItem36, 4, 1, 1, 1)
         self.input_patient = QtWidgets.QLineEdit(self.page_make)
         self.input_patient.setMinimumSize(QtCore.QSize(300, 60))
         self.input_patient.setMaximumSize(QtCore.QSize(300, 60))
@@ -942,98 +1095,22 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
 "padding-bottom:7px;")
         self.input_patient.setEchoMode(QtWidgets.QLineEdit.Normal)
         self.input_patient.setObjectName("input_patient")
-        self.gridLayout_3.addWidget(self.input_patient, 2, 1, 1, 1)
-        spacerItem24 = QtWidgets.QSpacerItem(60, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem24, 2, 0, 1, 1)
-        spacerItem25 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_3.addItem(spacerItem25, 5, 1, 1, 1)
-        spacerItem26 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_3.addItem(spacerItem26, 1, 1, 1, 1)
-        self.input_time = QtWidgets.QTimeEdit(self.page_make)
-        self.input_time.setMinimumSize(QtCore.QSize(300, 60))
-        self.input_time.setMaximumSize(QtCore.QSize(300, 60))
+        self.gridLayout_3.addWidget(self.input_patient, 3, 1, 1, 1)
+        self.label_4 = QtWidgets.QLabel(self.page_make)
         font = QtGui.QFont()
         font.setFamily("JetBrains Mono")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.input_time.setFont(font)
-        self.input_time.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
-"border:none;\n"
-"border-bottom:4px solid rgb(67, 36, 212);\n"
-"color:rgba(0, 0, 0, 240);\n"
-"padding-bottom:7px;")
-        self.input_time.setAlignment(QtCore.Qt.AlignCenter)
-        self.input_time.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
-        self.input_time.setKeyboardTracking(True)
-        self.input_time.setObjectName("input_time")
-        self.gridLayout_3.addWidget(self.input_time, 4, 3, 1, 1)
-        self.title_make = QtWidgets.QLabel(self.page_make)
-        self.title_make.setMinimumSize(QtCore.QSize(0, 120))
-        self.title_make.setMaximumSize(QtCore.QSize(931, 120))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(28)
-        font.setBold(True)
-        font.setWeight(75)
-        self.title_make.setFont(font)
-        self.title_make.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.title_make.setStyleSheet("color:rgba(0, 0, 0, 200);\n"
-"background-color: rgba(255, 255, 255, 0);")
-        self.title_make.setAlignment(QtCore.Qt.AlignCenter)
-        self.title_make.setObjectName("title_make")
-        self.gridLayout_3.addWidget(self.title_make, 0, 1, 1, 3)
-        spacerItem27 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_3.addItem(spacerItem27, 3, 1, 1, 1)
-        self.input_psychologist = QtWidgets.QLineEdit(self.page_make)
-        self.input_psychologist.setMinimumSize(QtCore.QSize(300, 60))
-        self.input_psychologist.setMaximumSize(QtCore.QSize(300, 60))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(10)
-        self.input_psychologist.setFont(font)
-        self.input_psychologist.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
-"border:none;\n"
-"border-bottom:4px solid rgb(67, 36, 212);\n"
-"color:rgba(0, 0, 0, 240);\n"
-"padding-bottom:7px;")
-        self.input_psychologist.setEchoMode(QtWidgets.QLineEdit.Normal)
-        self.input_psychologist.setObjectName("input_psychologist")
-        self.gridLayout_3.addWidget(self.input_psychologist, 4, 1, 1, 1)
-        spacerItem28 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_3.addItem(spacerItem28, 7, 2, 1, 1)
-        self.button_make = QtWidgets.QPushButton(self.page_make)
-        self.button_make.setMinimumSize(QtCore.QSize(301, 60))
-        self.button_make.setMaximumSize(QtCore.QSize(301, 60))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
-        self.button_make.setFont(font)
-        self.button_make.setStyleSheet("QPushButton{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(0, 0, 41), stop:1 rgb(34, 18, 127));\n"
-"    color:rgba(255, 255, 255, 210);\n"
-"    border-radius:5px;\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(17, 9, 84), stop:1 rgb(67, 36, 212));\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(34, 18, 127), stop:1 rgb(0, 0, 41));\n"
-"}")
-        self.button_make.setObjectName("button_make")
-        self.gridLayout_3.addWidget(self.button_make, 6, 2, 1, 1)
-        spacerItem29 = QtWidgets.QSpacerItem(60, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem29, 3, 4, 1, 1)
+        self.label_4.setFont(font)
+        self.label_4.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
+        self.label_4.setObjectName("label_4")
+        self.gridLayout_3.addWidget(self.label_4, 2, 3, 1, 1)
         self.input_patient.raise_()
         self.title_make.raise_()
         self.input_psychologist.raise_()
-        self.input_time.raise_()
-        self.button_make.raise_()
         self.frame_2.raise_()
+        self.input_observacao.raise_()
+        self.button_make.raise_()
+        self.input_time.raise_()
+        self.label_4.raise_()
         self.stackedWidget.addWidget(self.page_make)
         self.horizontalLayout.addWidget(self.stackedWidget)
 
@@ -1049,43 +1126,59 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
         self.Button_update_main.setText(_translate("Sistema_de_Agendamento_Psicologico", "  Atualizar  Dados"))
         self.Button_view_main.setText(_translate("Sistema_de_Agendamento_Psicologico", "  Ver Consultas Marcadas"))
         self.Button_make_main.setText(_translate("Sistema_de_Agendamento_Psicologico", "  Marcar Consulta"))
-        self.input_name.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Nome"))
-        self.title_register.setText(_translate("Sistema_de_Agendamento_Psicologico", "Registrar"))
-        self.input_password.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Senha"))
         self.input_cpf.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  CPF"))
         self.input_adress.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Endereço"))
         self.input_data.setDisplayFormat(_translate("Sistema_de_Agendamento_Psicologico", "dd/MM/yyyy"))
-        self.button_register.setText(_translate("Sistema_de_Agendamento_Psicologico", "Registrar"))
-        self.input_phone.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Celular"))
-        self.input_password_confirme.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Confirmar Senha"))
-        self.input_sexo.setItemText(0, _translate("Sistema_de_Agendamento_Psicologico", "  Sexo"))
-        self.input_sexo.setItemText(1, _translate("Sistema_de_Agendamento_Psicologico", "Femenino"))
-        self.input_sexo.setItemText(2, _translate("Sistema_de_Agendamento_Psicologico", "Masculino"))
         self.input_category.setItemText(0, _translate("Sistema_de_Agendamento_Psicologico", "  Categoria"))
         self.input_category.setItemText(1, _translate("Sistema_de_Agendamento_Psicologico", "Paciente"))
         self.input_category.setItemText(2, _translate("Sistema_de_Agendamento_Psicologico", "Psicólogo(a)"))
+        self.button_register.setText(_translate("Sistema_de_Agendamento_Psicologico", "Registrar"))
+        self.input_password.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Senha"))
         self.input_email.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Email"))
+        self.input_sexo.setItemText(0, _translate("Sistema_de_Agendamento_Psicologico", "  Sexo"))
+        self.input_sexo.setItemText(1, _translate("Sistema_de_Agendamento_Psicologico", "Femenino"))
+        self.input_sexo.setItemText(2, _translate("Sistema_de_Agendamento_Psicologico", "Masculino"))
+        self.input_name.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Nome"))
+        self.title_register.setText(_translate("Sistema_de_Agendamento_Psicologico", "Registrar"))
+        self.input_password_confirme.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Confirmar Senha"))
+        self.input_phone.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Celular"))
+        self.label.setText(_translate("Sistema_de_Agendamento_Psicologico", "Data de Nascimento:"))
         self.title_update.setText(_translate("Sistema_de_Agendamento_Psicologico", "Atualizar dados do Usúario"))
+        self.input_email_update.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Email"))
+        self.input_data_update.setDisplayFormat(_translate("Sistema_de_Agendamento_Psicologico", "dd/MM/yyyy"))
         self.input_adress_update.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Endereço"))
+        self.input_password_confirme_update.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Confirmar Senha"))
         self.input_category_update.setItemText(0, _translate("Sistema_de_Agendamento_Psicologico", "  Categoria"))
         self.input_category_update.setItemText(1, _translate("Sistema_de_Agendamento_Psicologico", "Paciente"))
         self.input_category_update.setItemText(2, _translate("Sistema_de_Agendamento_Psicologico", "Psicólogo(a)"))
         self.input_password_update.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Senha"))
         self.input_cpf_update.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  CPF"))
+        self.input_phone_update.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Celular"))
         self.input_name_update.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Nome"))
+        self.button_update.setText(_translate("Sistema_de_Agendamento_Psicologico", "Atualizar"))
         self.input_sexo_update.setItemText(0, _translate("Sistema_de_Agendamento_Psicologico", "  Sexo"))
         self.input_sexo_update.setItemText(1, _translate("Sistema_de_Agendamento_Psicologico", "Femenino"))
         self.input_sexo_update.setItemText(2, _translate("Sistema_de_Agendamento_Psicologico", "Masculino"))
-        self.button_update.setText(_translate("Sistema_de_Agendamento_Psicologico", "Atualizar"))
-        self.input_password_confirme_update.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Confirmar Senha"))
-        self.input_data_update.setDisplayFormat(_translate("Sistema_de_Agendamento_Psicologico", "dd/MM/yyyy"))
-        self.input_email_update.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Email"))
-        self.input_phone_update.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Celular"))
-        self.input_data_make.setDisplayFormat(_translate("Sistema_de_Agendamento_Psicologico", "dd/MM/yyyy"))
-        self.input_patient.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Paciente"))
+        self.label_3.setText(_translate("Sistema_de_Agendamento_Psicologico", "Data de Nascimento:"))
+        self.input_observacao.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Observações"))
+        self.input_time.setItemText(0, _translate("Sistema_de_Agendamento_Psicologico", "  Horario"))
+        self.input_time.setItemText(1, _translate("Sistema_de_Agendamento_Psicologico", "7 : 00"))
+        self.input_time.setItemText(2, _translate("Sistema_de_Agendamento_Psicologico", "8 : 00"))
+        self.input_time.setItemText(3, _translate("Sistema_de_Agendamento_Psicologico", "9 : 00"))
+        self.input_time.setItemText(4, _translate("Sistema_de_Agendamento_Psicologico", "10 : 00"))
+        self.input_time.setItemText(5, _translate("Sistema_de_Agendamento_Psicologico", "11 : 00"))
+        self.input_time.setItemText(6, _translate("Sistema_de_Agendamento_Psicologico", "12 : 00"))
+        self.input_time.setItemText(7, _translate("Sistema_de_Agendamento_Psicologico", "13 : 00"))
+        self.input_time.setItemText(8, _translate("Sistema_de_Agendamento_Psicologico", "14 : 00"))
+        self.input_time.setItemText(9, _translate("Sistema_de_Agendamento_Psicologico", "15 : 00"))
+        self.input_time.setItemText(10, _translate("Sistema_de_Agendamento_Psicologico", "16 : 00"))
+        self.input_time.setItemText(11, _translate("Sistema_de_Agendamento_Psicologico", "17 : 00"))
+        self.button_make.setText(_translate("Sistema_de_Agendamento_Psicologico", "Marcar Consulta"))
         self.title_make.setText(_translate("Sistema_de_Agendamento_Psicologico", "Marcar Consulta"))
         self.input_psychologist.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Psicólogo(a)"))
-        self.button_make.setText(_translate("Sistema_de_Agendamento_Psicologico", "Marcar Consulta"))
+        self.input_data_make.setDisplayFormat(_translate("Sistema_de_Agendamento_Psicologico", "dd/MM/yyyy"))
+        self.input_patient.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Paciente"))
+        self.label_4.setText(_translate("Sistema_de_Agendamento_Psicologico", "  Data da Consulta:"))
 
 
 if __name__ == "__main__":
