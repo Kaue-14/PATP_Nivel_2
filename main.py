@@ -1,6 +1,7 @@
 # Importa as coisas do Pyqt5
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtCore import QDate
+from PyQt5.QtWidgets import QTableWidgetItem
 import sys
 
 # Banco de dados
@@ -15,6 +16,7 @@ from Designer.login import Ui_Login
 from Designer.calendar import Ui_Calendario
 from Designer.widget_main import Ui_Sistema_de_Agendamento_Psicologico
 from Designer.cadastro_ok import Ui_cadastro_ok
+from Designer.pesquisa_usuarios import Ui_pesquisa_perfil
 
 class login(QtWidgets.QWidget):
     def __init__(self):
@@ -77,6 +79,7 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         self.ui.button_calendar_update.clicked.connect(self.botao_calendario)
         
         # Botão de registro e marcar consulta
+        self.ui.button_make.clicked.connect(self.abrir_pesquisa_usuarios)
         self.ui.button_make.clicked.connect(self.marcar_consulta)
         self.ui.button_register.clicked.connect(self.registrar)
 
@@ -137,12 +140,13 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
             print("As senhas não são iguais.")
 
     def marcar_consulta(self):
-        marcar_consulta = Classes.Classe_Agenda.Agenda.Marca_Consulta(
+        marcar_consulta = Classes.Classe_Agenda.Agenda(
             data = self.ui.input_data_make.date(),
             hora = self.ui.input_time.currentText(),
             paciente = self.ui.input_patient.text(),
             psicologo = self.ui.input_psychologist.text(),
-            observacoes = self.ui.input_observacao.text()
+            observacoes = self.ui.input_observacao.text(),
+            status = 'DEFAULT'
         )
         marcar_consulta.Marca_Consulta()
         
@@ -270,7 +274,11 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         else:
             self.ui.input_data_make.setDate(date)
             self.ui.input_time.showPopup()
-        self.calendar.close()    
+        self.calendar.close()  
+
+    def abrir_pesquisa_usuarios(self):
+        self.pesquisa_usuarios =  pesquisa_usuarios()
+        self.pesquisa_usuarios.show() 
 
 class calendario(QtWidgets.QWidget):
     data_selected = QtCore.pyqtSignal(QtCore.QDate)
@@ -302,6 +310,48 @@ class janela_confirmacao_cadastro(QtWidgets.QWidget):
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
 
         self.ui.Button_quit.clicked.connect(self.close)
+
+class pesquisa_usuarios(QtWidgets.QWidget):
+    def __init__(self):
+        super(pesquisa_usuarios, self).__init__()
+        self.ui = Ui_pesquisa_perfil()
+        self.ui.setupUi(self)
+
+
+        # Bug no meu pc
+        conn = None
+        cursor = None
+        try:
+            # Conectar ao banco de dados MySQL            conn = mysql.
+            conn = mysql.connector.connect(
+                host="127.0.0.1",
+                user="root",
+                password="",
+                database="consultorio_psicologia"
+            )
+
+            cursor = conn.cursor()
+
+            cursor.execute("""SELECT id_usuarios, nome_pessoa, data_nascimento, sexo, email, telefone, endereco FROM usuarios""")
+            rows = cursor.fetchall()
+
+            # Número de linhas
+            self.ui.pesquisa_usuarios.setRowCount(len(rows))
+
+            # Adiciona cabeçalhos
+            self.ui.pesquisa_usuarios.setHorizontalHeaderLabels(['id_usuarios', 'nome_pessoa', 'data_nascimento', 'sexo', 'email', 'telefone', 'endereco'])
+
+            for i, row in enumerate(rows):
+                for j, item in enumerate(row):
+                    self.ui.pesquisa_usuarios.setItem(i, j, QTableWidgetItem(str(item)))
+
+        except mysql.connector.Error as err:
+            print(f"Erro: {err}")
+        finally:
+            if cursor is not None:
+                cursor.close()
+            if conn is not None:
+                conn.close()
 
 # Starter
 if __name__ == "__main__":
