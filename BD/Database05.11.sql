@@ -108,8 +108,8 @@ ADD COLUMN hora TIME NOT NULL;
 
 UPDATE agendamentos1
 SET 
-    data = DATE(data_hora),  -- Extrai apenas a parte da data
-    hora = TIME(data_hora);  -- Extrai apenas a parte da hora
+    data = DATE(data_hora),
+    hora = TIME(data_hora);
 
 ALTER TABLE agendamentos1
 DROP COLUMN data_hora;
