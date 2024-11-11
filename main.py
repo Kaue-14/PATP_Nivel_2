@@ -332,16 +332,14 @@ class pesquisa_usuarios(QtWidgets.QWidget):
 
             cursor = conn.cursor()
 
-            cursor.execute("""SELECT nome_pessoa, data_nascimento, sexo, email, telefone, cpf endereco FROM usuarios1""")
+            cursor.execute("""SELECT nome_pessoa, idade, sexo, email, telefone, cpf, endereco FROM v_paciente""")
             
             rows = cursor.fetchall()
 
             # Número de linhas
             self.ui.pesquisa_usuarios.setRowCount(len(rows))
 
-            for i, row in enumerate(rows):
-                for j, item in enumerate(row):
-                    self.ui.pesquisa_usuarios.setItem(i, j, QTableWidgetItem(str(item)))
+            self.ui.pesquisa_usuarios.setColumnCount(10) 
 
         except mysql.connector.Error as err:
             print(f"Erro: {err}")
