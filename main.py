@@ -322,24 +322,22 @@ class pesquisa_usuarios(QtWidgets.QWidget):
         conn = None
         cursor = None
         try:
-            # Conectar ao banco de dados MySQL            conn = mysql.
+            # Conectar ao banco de dados MySQL
             conn = mysql.connector.connect(
                 host="127.0.0.1",
                 user="root",
                 password="",
-                database="consultorio_psicologia"
+                database="consultoriov1"
             )
 
             cursor = conn.cursor()
 
-            cursor.execute("""SELECT id_usuarios, nome_pessoa, data_nascimento, sexo, email, telefone, endereco FROM usuarios""")
+            cursor.execute("""SELECT nome_pessoa, data_nascimento, sexo, email, telefone, cpf endereco FROM usuarios1""")
+            
             rows = cursor.fetchall()
 
             # Número de linhas
             self.ui.pesquisa_usuarios.setRowCount(len(rows))
-
-            # Adiciona cabeçalhos
-            self.ui.pesquisa_usuarios.setHorizontalHeaderLabels(['id_usuarios', 'nome_pessoa', 'data_nascimento', 'sexo', 'email', 'telefone', 'endereco'])
 
             for i, row in enumerate(rows):
                 for j, item in enumerate(row):
@@ -352,6 +350,34 @@ class pesquisa_usuarios(QtWidgets.QWidget):
                 cursor.close()
             if conn is not None:
                 conn.close()
+
+    def pegar_dados(self):
+        selecionar_usuario = self.ui.pesquisa_usuarios.selectedItems()
+
+        if selecionar_usuario:
+            cpf = selecionar_usuario[5].text()
+
+            # Bug no meu pc
+            conn = None
+            cursor = None
+            try:
+                # Conectar ao banco de dados MySQL
+                conn = mysql.connector.connect(
+                    host="127.0.0.1",
+                    user="root",
+                    password="",
+                    database="consultoriov1"
+                )
+            
+                
+
+            except mysql.connector.Error as err:
+                print(f"Erro: {err}")
+            finally:
+                if cursor is not None:
+                    cursor.close()
+                if conn is not None:
+                    conn.close()
 
 # Starter
 if __name__ == "__main__":

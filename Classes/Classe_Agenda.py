@@ -30,7 +30,7 @@ class Agenda:
                 host="127.0.0.1",
                 user="root",
                 password="",
-                database="consultorio_psicologia"
+                database="consultoriov1"
             )
 
             cursor = conn.cursor()
@@ -63,13 +63,11 @@ class Agenda:
                 hora = '17:00:00'
             else:
                 hora = None
-                # Horário e Data pra Salvar no banco de dados
-            data_hora = f'{data} {hora}'
 
             # Inserir dados na tabela agendamentos
             # cursor.execute(f"""
-            # INSERT INTO agendamentos (id_paciente, id_psicologo, data_hora, observacoes)
-            # VALUES ('')
+            # INSERT INTO agendamentos1 (id_paciente, id_psicologo, observacoes, data, hora)
+            # VALUES ('{self.paciente}','{self.psicologo}','{self.observacoes}','{data}','{hora}')
             # """)
 
             print(f"Paciente: {self.paciente} \nPsicólogo(a): {self.psicologo} \nObservações: {self.observacoes} \nData: {data} \nHorário: {hora}")

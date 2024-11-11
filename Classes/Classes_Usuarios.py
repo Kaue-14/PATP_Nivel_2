@@ -34,7 +34,7 @@ class Usuarios:
                 host="127.0.0.1",
                 user="root",
                 password="",
-                database="consultorio_psicologia"
+                database="consultoriov1"
             )
 
             cursor = conn.cursor()
@@ -53,7 +53,7 @@ class Usuarios:
 
             # Inserir dados na tabela usuarios
             cursor.execute(f"""
-                INSERT INTO usuarios (nome_pessoa, data_nascimento, sexo, cpf, email, senha, telefone, endereco, tipo)
+                INSERT INTO usuarios1 (nome_pessoa, data_nascimento, sexo, cpf, email, senha, telefone, endereco, tipo)
                 VALUES ('{self.nome_pessoa}', '{data_nascimento}', '{sexo}', '{self.cpf}', '{self.email}', '{self.senha}', '{self.telefone}', '{self.endereco}', '{tipo}')
             """)
 
@@ -83,13 +83,13 @@ class Usuarios:
                 host="127.0.0.1",
                 user="root",
                 password="",
-                database="consultorio_psicologia"
+                database="consultoriov1"
             )
 
             cursor = conn.cursor()
 
             # Pegar informações para Login
-            cursor.execute(f"""Select * From Usuarios Where cpf = '{user}' And senha = '{senha}'""")
+            cursor.execute(f"""Select * From usuarios1 Where cpf = '{user}' And senha = '{senha}'""")
             cursor.fetchall()
 
             # Verificar as informações do Login
