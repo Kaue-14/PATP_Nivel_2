@@ -47,9 +47,9 @@ class Usuarios:
                 sexo = 'F'
 
             if self.tipo == "Paciente":
-                tipo = "Paciente"
+                tipo = "paciente"
             elif self.tipo == "Psicólogo(a)":
-                tipo = "Psicólogo(a)"
+                tipo = "psicólogo"
 
             # Inserir dados na tabela usuarios
             cursor.execute(f"""

@@ -371,6 +371,26 @@ class pesquisa_usuarios(QtWidgets.QWidget):
             
                 cursor = conn.cursor()
 
+                cursor.execute(f"""
+                    SELECT nome_pessoa, idade, sexo, email, telefone, endereco, cpf 
+                    FROM v_pacientes 
+                    WHERE cpf = {cpf}
+                """)
+
+                usuario_selecionado = cursor.fetchone()
+                
+                if usuario_selecionado:
+                    # Agora você pode acessar os dados do paciente, por exemplo:
+                    nome_paciente = usuario_selecionado[0]
+                    idade_paciente = usuario_selecionado[1]
+                    sexo_paciente = usuario_selecionado[2]
+                    email_paciente = usuario_selecionado[3]
+                    telefone_paciente = usuario_selecionado[4]
+                    endereco_paciente = usuario_selecionado[5]
+                    cpf_paciente = usuario_selecionado[6]
+
+                print(f'Paciente Selecionado: {nome_paciente}, CPF: {cpf_paciente}')
+
             except mysql.connector.Error as err:
                 print(f"Erro: {err}")
             finally:
