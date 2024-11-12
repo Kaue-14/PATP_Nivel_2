@@ -77,34 +77,45 @@
      <attribute name="horizontalHeaderCascadingSectionResizes">
       <bool>false</bool>
      </attribute>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>36</number>
+     </attribute>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>123</number>
+     </attribute>
      <column>
       <property name="text">
-       <string>nome_pessoa</string>
+       <string>Nome</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>idade</string>
+       <string>CPF</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>sexo</string>
+       <string>Idade</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>email</string>
+       <string>Sexo</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>telefone</string>
+       <string>Email</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>endereco</string>
+       <string>Telefone</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Endereco</string>
       </property>
      </column>
     </widget>

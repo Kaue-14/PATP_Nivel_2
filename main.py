@@ -276,9 +276,18 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
             self.ui.input_time.showPopup()
         self.calendar.close()  
 
+    # Pesquisa de Usuarios em um tabela
     def abrir_pesquisa_usuarios(self):
         self.pesquisa_usuarios =  pesquisa_usuarios()
         self.pesquisa_usuarios.show() 
+        
+        # Passa o nomes para o input
+        self.pesquisa_usuarios.usuario_selecionado.connect(self.atualizar_info_marcar_cunsulta)
+
+    def atualizar_info_marcar_cunsulta(self, nome, cpf):
+        # Define o nome no QLineEdit 'input_patient'
+        self.ui.input_patient.setText(nome)
+        print(f'Esse e o cpf de uma funcao : {cpf}')
 
 class calendario(QtWidgets.QWidget):
     data_selected = QtCore.pyqtSignal(QtCore.QDate)
@@ -312,11 +321,17 @@ class janela_confirmacao_cadastro(QtWidgets.QWidget):
         self.ui.Button_quit.clicked.connect(self.close)
 
 class pesquisa_usuarios(QtWidgets.QWidget):
+    # Define o sinal para emitir o nome e cpf do paciente selecionado
+    usuario_selecionado = QtCore.pyqtSignal(str, str)  # Nome e CPF
+    
     def __init__(self):
         super(pesquisa_usuarios, self).__init__()
         self.ui = Ui_pesquisa_perfil()
         self.ui.setupUi(self)
 
+
+        # Permite a seleção do usuario com dois click
+        self.ui.pesquisa_usuarios.cellDoubleClicked.connect(self.pegar_dados)
 
         # Bug no meu pc
         conn = None
@@ -332,17 +347,18 @@ class pesquisa_usuarios(QtWidgets.QWidget):
 
             cursor = conn.cursor()
 
-            cursor.execute("""SELECT nome_pessoa, idade, sexo, email, telefone, endereco, cpf FROM v_pacientes""")
+            cursor.execute("""SELECT nome_pessoa, cpf, idade, sexo, email, telefone, endereco FROM v_pacientes""")
             
             rows = cursor.fetchall()
 
             # Número de linhas
             self.ui.pesquisa_usuarios.setRowCount(len(rows))
 
+            # Pega os dados do banco de dados e coloca na pesquisa
             for i, row in enumerate(rows):
                 for j, item in enumerate(row):
                     self.ui.pesquisa_usuarios.setItem(i, j, QTableWidgetItem(str(item)))
-
+                    
         except mysql.connector.Error as err:
             print(f"Erro: {err}")
         finally:
@@ -351,53 +367,23 @@ class pesquisa_usuarios(QtWidgets.QWidget):
             if conn is not None:
                 conn.close()
 
-    def pegar_dados(self):
-        selecionar_usuario = self.ui.pesquisa_usuarios.selectedItems()
+    def pegar_dados(self, row):
+        # Seleciona a linha e extrai os dados
+        nome = self.ui.pesquisa_usuarios.item(row, 0).text()
+        cpf = self.ui.pesquisa_usuarios.item(row, 1).text()
+        idade = self.ui.pesquisa_usuarios.item(row, 2).text()
+        sexo = self.ui.pesquisa_usuarios.item(row, 3).text()
+        email = self.ui.pesquisa_usuarios.item(row, 4).text()
+        telefone = self.ui.pesquisa_usuarios.item(row, 5).text()
+        endereco = self.ui.pesquisa_usuarios.item(row, 6).text()
+        
+        # Emite o sinal com o nome selecionado
+        self.usuario_selecionado.emit(nome, cpf)
 
-        if selecionar_usuario:
-            cpf = selecionar_usuario[6].text()
-
-            # Bug no meu pc
-            conn = None
-            cursor = None
-            try:
-                # Conectar ao banco de dados MySQL
-                conn = mysql.connector.connect(
-                    host="127.0.0.1",
-                    user="root",
-                    password="",
-                    database="consultoriov1"
-                )
-            
-                cursor = conn.cursor()
-
-                cursor.execute(f"""
-                    SELECT nome_pessoa, idade, sexo, email, telefone, endereco, cpf 
-                    FROM v_pacientes 
-                    WHERE cpf = {cpf}
-                """)
-
-                usuario_selecionado = cursor.fetchone()
-                
-                if usuario_selecionado:
-                    # Agora você pode acessar os dados do paciente, por exemplo:
-                    nome_paciente = usuario_selecionado[0]
-                    idade_paciente = usuario_selecionado[1]
-                    sexo_paciente = usuario_selecionado[2]
-                    email_paciente = usuario_selecionado[3]
-                    telefone_paciente = usuario_selecionado[4]
-                    endereco_paciente = usuario_selecionado[5]
-                    cpf_paciente = usuario_selecionado[6]
-
-                print(f'Paciente Selecionado: {nome_paciente}, CPF: {cpf_paciente}')
-
-            except mysql.connector.Error as err:
-                print(f"Erro: {err}")
-            finally:
-                if cursor is not None:
-                    cursor.close()
-                if conn is not None:
-                    conn.close()
+        # Exibir as informações no terminal
+        print(f"Paciente Selecionado: {nome}, CPF: {cpf}, Idade: {idade}, Sexo: {sexo}, Email: {email}, Telefone: {telefone}, Endereço: {endereco}")
+        
+        self.close()
 
 # Starter
 if __name__ == "__main__":
