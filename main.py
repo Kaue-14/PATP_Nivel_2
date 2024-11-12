@@ -23,7 +23,7 @@ class login(QtWidgets.QWidget):
         super(login, self).__init__()
         self.ui = Ui_Login()
         self.ui.setupUi(self)
-        
+
         # Remover barra da janela e deixar o fundo transparente
         # self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         # self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
@@ -284,10 +284,10 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         # Passa o nomes para o input
         self.pesquisa_usuarios.usuario_selecionado.connect(self.atualizar_info_marcar_cunsulta)
 
-    def atualizar_info_marcar_cunsulta(self, nome, cpf):
+    def atualizar_info_marcar_cunsulta(self, nome, cpf, id_usuario):
         # Define o nome no QLineEdit 'input_patient'
         self.ui.input_patient.setText(nome)
-        print(f'Esse e o cpf de uma funcao : {cpf}')
+        print(f'ID: {id_usuario} \nEsse e o cpf de uma funcao : {cpf}')
 
 class calendario(QtWidgets.QWidget):
     data_selected = QtCore.pyqtSignal(QtCore.QDate)
@@ -322,7 +322,7 @@ class janela_confirmacao_cadastro(QtWidgets.QWidget):
 
 class pesquisa_usuarios(QtWidgets.QWidget):
     # Define o sinal para emitir o nome e cpf do paciente selecionado
-    usuario_selecionado = QtCore.pyqtSignal(str, str)  # Nome e CPF
+    usuario_selecionado = QtCore.pyqtSignal(str, str, str)  # Nome, CPF e ID usuario
     
     def __init__(self):
         super(pesquisa_usuarios, self).__init__()
@@ -341,13 +341,13 @@ class pesquisa_usuarios(QtWidgets.QWidget):
             conn = mysql.connector.connect(
                 host="127.0.0.1",
                 user="root",
-                password="",
+                password="admin",
                 database="consultoriov1"
             )
 
             cursor = conn.cursor()
 
-            cursor.execute("""SELECT nome_pessoa, cpf, idade, sexo, email, telefone, endereco FROM v_pacientes""")
+            cursor.execute("""SELECT nome_pessoa, cpf, idade, sexo, email, telefone, endereco, id_usuario FROM v_pacientes""")
             
             rows = cursor.fetchall()
 
@@ -376,12 +376,13 @@ class pesquisa_usuarios(QtWidgets.QWidget):
         email = self.ui.pesquisa_usuarios.item(row, 4).text()
         telefone = self.ui.pesquisa_usuarios.item(row, 5).text()
         endereco = self.ui.pesquisa_usuarios.item(row, 6).text()
+        id_usuario = self.ui.pesquisa_usuarios.item(row, 7)
         
         # Emite o sinal com o nome selecionado
-        self.usuario_selecionado.emit(nome, cpf)
+        self.usuario_selecionado.emit(nome, cpf, id_usuario)
 
         # Exibir as informações no terminal
-        print(f"Paciente Selecionado: {nome}, CPF: {cpf}, Idade: {idade}, Sexo: {sexo}, Email: {email}, Telefone: {telefone}, Endereço: {endereco}")
+        print(f"ID: {id_usuario} \nPaciente Selecionado: {nome}, CPF: {cpf}, Idade: {idade}, Sexo: {sexo}, Email: {email}, Telefone: {telefone}, Endereço: {endereco}")
         
         self.close()
 

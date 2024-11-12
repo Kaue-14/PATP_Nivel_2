@@ -29,7 +29,7 @@ class Agenda:
             conn = mysql.connector.connect(
                 host="127.0.0.1",
                 user="root",
-                password="",
+                password="admin",
                 database="consultoriov1"
             )
 
@@ -69,8 +69,6 @@ class Agenda:
             # INSERT INTO agendamentos1 (id_paciente, id_psicologo, observacoes, data, hora)
             # VALUES ('{self.paciente}','{self.psicologo}','{self.observacoes}','{data}','{hora}')
             # """)
-
-            print(f"Paciente: {self.paciente} \nPsicólogo(a): {self.psicologo} \nObservações: {self.observacoes} \nData: {data} \nHorário: {hora}")
 
         except mysql.connector.Error as err:
             print(f"Erro: {err}")

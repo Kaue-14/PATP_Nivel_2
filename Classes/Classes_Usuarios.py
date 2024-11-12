@@ -33,7 +33,7 @@ class Usuarios:
             conn = mysql.connector.connect(
                 host="127.0.0.1",
                 user="root",
-                password="",
+                password="admin",
                 database="consultoriov1"
             )
 
@@ -82,7 +82,7 @@ class Usuarios:
             conn = mysql.connector.connect(
                 host="127.0.0.1",
                 user="root",
-                password="",
+                password="admin",
                 database="consultoriov1"
             )
 
@@ -97,6 +97,8 @@ class Usuarios:
                 self.psy = main.sistema_de_agendamento_psicologico()
                 self.psy.show()
                 self.close()
+            else:
+                print('Dados invalidos')
         
         except mysql.connector.Error as err:
             print(f"Erro: {err}")
