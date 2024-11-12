@@ -332,14 +332,16 @@ class pesquisa_usuarios(QtWidgets.QWidget):
 
             cursor = conn.cursor()
 
-            cursor.execute("""SELECT nome_pessoa, idade, sexo, email, telefone, cpf, endereco FROM v_paciente""")
+            cursor.execute("""SELECT nome_pessoa, idade, sexo, email, telefone, endereco, cpf FROM v_pacientes""")
             
             rows = cursor.fetchall()
 
             # Número de linhas
             self.ui.pesquisa_usuarios.setRowCount(len(rows))
 
-            self.ui.pesquisa_usuarios.setColumnCount(10) 
+            for i, row in enumerate(rows):
+                for j, item in enumerate(row):
+                    self.ui.pesquisa_usuarios.setItem(i, j, QTableWidgetItem(str(item)))
 
         except mysql.connector.Error as err:
             print(f"Erro: {err}")
@@ -353,7 +355,7 @@ class pesquisa_usuarios(QtWidgets.QWidget):
         selecionar_usuario = self.ui.pesquisa_usuarios.selectedItems()
 
         if selecionar_usuario:
-            cpf = selecionar_usuario[5].text()
+            cpf = selecionar_usuario[6].text()
 
             # Bug no meu pc
             conn = None
@@ -367,7 +369,7 @@ class pesquisa_usuarios(QtWidgets.QWidget):
                     database="consultoriov1"
                 )
             
-                
+                cursor = conn.cursor()
 
             except mysql.connector.Error as err:
                 print(f"Erro: {err}")

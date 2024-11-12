@@ -84,7 +84,7 @@
      </column>
      <column>
       <property name="text">
-       <string>data_nascimento</string>
+       <string>idade</string>
       </property>
      </column>
      <column>

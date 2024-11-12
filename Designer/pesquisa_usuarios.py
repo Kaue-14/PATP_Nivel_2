@@ -70,7 +70,7 @@ class Ui_pesquisa_perfil(object):
         item = self.pesquisa_usuarios.horizontalHeaderItem(0)
         item.setText(_translate("pesquisa_perfil", "nome_pessoa"))
         item = self.pesquisa_usuarios.horizontalHeaderItem(1)
-        item.setText(_translate("pesquisa_perfil", "data_nascimento"))
+        item.setText(_translate("pesquisa_perfil", "idade"))
         item = self.pesquisa_usuarios.horizontalHeaderItem(2)
         item.setText(_translate("pesquisa_perfil", "sexo"))
         item = self.pesquisa_usuarios.horizontalHeaderItem(3)
