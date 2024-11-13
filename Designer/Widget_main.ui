@@ -2180,173 +2180,15 @@ color:rgba(0, 0, 0);
      </widget>
      <widget class="QWidget" name="page_make">
       <layout class="QGridLayout" name="gridLayout_3">
-       <item row="8" column="0">
-        <spacer name="horizontalSpacer_10">
+       <item row="4" column="1">
+        <spacer name="verticalSpacer_11">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="4" column="4">
-        <spacer name="horizontalSpacer_6">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Minimum</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>60</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="8" column="1">
-        <widget class="QLineEdit" name="input_observacao">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>300</width>
-           <height>120</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>JetBrains Mono</family>
-           <pointsize>8</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color:rgba(0, 0, 0, 0);
-border:none;
-border:4px solid rgb(67, 36, 212);
-border-radius: 7px;
-color:rgba(0, 0, 0, 240);
-padding-bottom:7px;</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-         </property>
-         <property name="placeholderText">
-          <string>  Observações</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="3">
-        <widget class="QComboBox" name="input_time">
-         <property name="minimumSize">
-          <size>
-           <width>300</width>
-           <height>60</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>JetBrains Mono</family>
-           <pointsize>10</pointsize>
-           <stylestrategy>PreferDefault</stylestrategy>
-          </font>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">#input_time{
-background-color:rgba(0, 0, 0, 0);
-border: none;
-border-bottom:4px solid rgb(67, 36, 212);
-color:rgba(0, 0, 0, 240);
-padding-bottom:7px;
-}
-#input_time QListView{
-background-color:rgba(255, 255, 255);
-color:rgba(0, 0, 0);
-}</string>
-         </property>
-         <item>
-          <property name="text">
-           <string>  Horario</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>7 : 00</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>8 : 00</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>9 : 00</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>10 : 00</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>11 : 00</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>12 : 00</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>13 : 00</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>14 : 00</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>15 : 00</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>16 : 00</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>17 : 00</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item row="8" column="4">
-        <spacer name="horizontalSpacer_11">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
+           <width>20</width>
+           <height>40</height>
           </size>
          </property>
         </spacer>
@@ -2364,63 +2206,102 @@ color:rgba(0, 0, 0);
          </property>
         </spacer>
        </item>
-       <item row="8" column="3">
-        <widget class="QPushButton" name="button_make">
+       <item row="5" column="1">
+        <widget class="QFrame" name="frame_5">
          <property name="minimumSize">
           <size>
-           <width>301</width>
+           <width>300</width>
            <height>60</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>16777215</width>
-           <height>16777215</height>
+           <width>300</width>
+           <height>60</height>
           </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>JetBrains Mono</family>
-           <pointsize>14</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QPushButton{
-	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(0, 0, 41), stop:1 rgb(34, 18, 127));
-	color:rgba(255, 255, 255, 210);
-	border-radius:5px;
-}
-
-QPushButton:hover{
-	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(17, 9, 84), stop:1 rgb(67, 36, 212));
-}
-
-QPushButton:pressed{
-	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(34, 18, 127), stop:1 rgb(0, 0, 41));
-}</string>
+          <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
          </property>
-         <property name="text">
-          <string>Marcar Consulta</string>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
          </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QPushButton" name="button_psychologist">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>0</y>
+            <width>60</width>
+            <height>60</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>MS Shell Dlg 2</family>
+            <pointsize>2</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color:rgba(0, 0, 0, 0);
+border:none;
+color:rgba(0, 0, 0, 240);
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>calendar_icon.webp</normaloff>calendar_icon.webp</iconset>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="input_psychologist">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>300</width>
+            <height>60</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>300</width>
+            <height>60</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>300</width>
+            <height>60</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>JetBrains Mono</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color:rgba(0, 0, 0, 0);
+border:none;
+border-bottom:4px solid rgb(67, 36, 212);
+color:rgba(0, 0, 0, 240);
+padding-bottom:7px;</string>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Normal</enum>
+          </property>
+          <property name="placeholderText">
+           <string>  Psicólogo(a)</string>
+          </property>
+         </widget>
+         <zorder>input_psychologist</zorder>
+         <zorder>button_psychologist</zorder>
         </widget>
-       </item>
-       <item row="10" column="2">
-        <spacer name="verticalSpacer_22">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Expanding</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
        </item>
        <item row="0" column="1" colspan="3">
         <widget class="QLabel" name="title_make">
@@ -2458,57 +2339,6 @@ background-color: rgba(255, 255, 255, 0);</string>
           <set>Qt::AlignCenter</set>
          </property>
         </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="QLineEdit" name="input_psychologist">
-         <property name="minimumSize">
-          <size>
-           <width>300</width>
-           <height>60</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>300</width>
-           <height>60</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>JetBrains Mono</family>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color:rgba(0, 0, 0, 0);
-border:none;
-border-bottom:4px solid rgb(67, 36, 212);
-color:rgba(0, 0, 0, 240);
-padding-bottom:7px;</string>
-         </property>
-         <property name="echoMode">
-          <enum>QLineEdit::Normal</enum>
-         </property>
-         <property name="placeholderText">
-          <string>  Psicólogo(a)</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <spacer name="horizontalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Minimum</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>60</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
        </item>
        <item row="3" column="3">
         <widget class="QFrame" name="frame_2">
@@ -2625,60 +2455,51 @@ color:rgba(0, 0, 0, 240);
          </widget>
         </widget>
        </item>
-       <item row="5" column="2">
-        <spacer name="horizontalSpacer_12">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="7" column="1">
-        <spacer name="verticalSpacer_12">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Expanding</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="4" column="1">
-        <spacer name="verticalSpacer_11">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="3" column="1">
-        <widget class="QLineEdit" name="input_patient">
+       <item row="8" column="3">
+        <widget class="QPushButton" name="button_make">
          <property name="minimumSize">
           <size>
-           <width>300</width>
+           <width>301</width>
            <height>60</height>
           </size>
          </property>
          <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>JetBrains Mono</family>
+           <pointsize>14</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(0, 0, 41), stop:1 rgb(34, 18, 127));
+	color:rgba(255, 255, 255, 210);
+	border-radius:5px;
+}
+
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(17, 9, 84), stop:1 rgb(67, 36, 212));
+}
+
+QPushButton:pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(34, 18, 127), stop:1 rgb(0, 0, 41));
+}</string>
+         </property>
+         <property name="text">
+          <string>Marcar Consulta</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="3">
+        <widget class="QComboBox" name="input_time">
+         <property name="minimumSize">
           <size>
            <width>300</width>
            <height>60</height>
@@ -2688,22 +2509,99 @@ color:rgba(0, 0, 0, 240);
           <font>
            <family>JetBrains Mono</family>
            <pointsize>10</pointsize>
+           <stylestrategy>PreferDefault</stylestrategy>
           </font>
          </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
          <property name="styleSheet">
-          <string notr="true">background-color:rgba(0, 0, 0, 0);
-border:none;
+          <string notr="true">#input_time{
+background-color:rgba(0, 0, 0, 0);
+border: none;
 border-bottom:4px solid rgb(67, 36, 212);
 color:rgba(0, 0, 0, 240);
-padding-bottom:7px;</string>
+padding-bottom:7px;
+}
+#input_time QListView{
+background-color:rgba(255, 255, 255);
+color:rgba(0, 0, 0);
+}</string>
          </property>
-         <property name="echoMode">
-          <enum>QLineEdit::Normal</enum>
-         </property>
-         <property name="placeholderText">
-          <string>  Paciente</string>
-         </property>
+         <item>
+          <property name="text">
+           <string>  Horario</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>7 : 00</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>8 : 00</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>9 : 00</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>10 : 00</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>11 : 00</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>12 : 00</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>13 : 00</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>14 : 00</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>15 : 00</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>16 : 00</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>17 : 00</string>
+          </property>
+         </item>
         </widget>
+       </item>
+       <item row="7" column="0">
+        <spacer name="horizontalSpacer_10">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
        <item row="2" column="3">
         <widget class="QLabel" name="label_4">
@@ -2720,8 +2618,233 @@ padding-bottom:7px;</string>
          </property>
         </widget>
        </item>
+       <item row="7" column="4">
+        <spacer name="horizontalSpacer_11">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="5" column="2">
+        <spacer name="horizontalSpacer_12">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="4" column="4">
+        <spacer name="horizontalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Minimum</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>60</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="9" column="2">
+        <spacer name="verticalSpacer_22">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Expanding</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="3" column="0">
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Minimum</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>60</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="6" column="1">
+        <spacer name="verticalSpacer_12">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Expanding</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="7" column="1" rowspan="2">
+        <widget class="QLineEdit" name="input_observacao">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>JetBrains Mono</family>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:rgba(0, 0, 0, 0);
+border:none;
+border:4px solid rgb(67, 36, 212);
+border-radius: 7px;
+color:rgba(0, 0, 0, 240);
+padding-bottom:7px;</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="placeholderText">
+          <string>  Observações</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QFrame" name="frame_4">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QPushButton" name="button_patient">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>0</y>
+            <width>60</width>
+            <height>60</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>MS Shell Dlg 2</family>
+            <pointsize>2</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color:rgba(0, 0, 0, 0);
+border:none;
+color:rgba(0, 0, 0, 240);
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>calendar_icon.webp</normaloff>calendar_icon.webp</iconset>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="input_patient">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>300</width>
+            <height>60</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>300</width>
+            <height>60</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>300</width>
+            <height>60</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>JetBrains Mono</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color:rgba(0, 0, 0, 0);
+border:none;
+border-bottom:4px solid rgb(67, 36, 212);
+color:rgba(0, 0, 0, 240);
+padding-bottom:7px;</string>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Normal</enum>
+          </property>
+          <property name="placeholderText">
+           <string>  Paciente</string>
+          </property>
+         </widget>
+         <zorder>input_patient</zorder>
+         <zorder>button_patient</zorder>
+        </widget>
+       </item>
       </layout>
-      <zorder>input_patient</zorder>
       <zorder>title_make</zorder>
       <zorder>verticalSpacer_10</zorder>
       <zorder>verticalSpacer_11</zorder>
@@ -2731,13 +2854,14 @@ padding-bottom:7px;</string>
       <zorder>verticalSpacer_22</zorder>
       <zorder>horizontalSpacer_10</zorder>
       <zorder>horizontalSpacer_11</zorder>
-      <zorder>input_psychologist</zorder>
       <zorder>frame_2</zorder>
       <zorder>input_observacao</zorder>
       <zorder>horizontalSpacer_12</zorder>
       <zorder>button_make</zorder>
       <zorder>input_time</zorder>
       <zorder>label_4</zorder>
+      <zorder>frame_5</zorder>
+      <zorder>frame_4</zorder>
      </widget>
     </widget>
    </item>

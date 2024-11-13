@@ -51,6 +51,8 @@ class login(QtWidgets.QWidget):
             self.ui.button_login.click()
 
 class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
+    tipo_selecionado = QtCore.pyqtSignal(int)
+
     def __init__(self):
         super(sistema_de_agendamento_psicologico, self).__init__()
         self.ui = Ui_Sistema_de_Agendamento_Psicologico()
@@ -78,8 +80,11 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         self.ui.button_calendar_make.clicked.connect(self.botao_calendario)
         self.ui.button_calendar_update.clicked.connect(self.botao_calendario)
         
+        # Usar botões para abrir pesquisa usuarios
+        self.ui.button_patient.clicked.connect(self.abrir_pesquisa_usuarios)
+        self.ui.button_psychologist.clicked.connect(self.abrir_pesquisa_usuarios)
+
         # Botão de registro e marcar consulta
-        self.ui.button_make.clicked.connect(self.abrir_pesquisa_usuarios)
         self.ui.button_make.clicked.connect(self.marcar_consulta)
         self.ui.button_register.clicked.connect(self.registrar)
 
@@ -191,9 +196,9 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
             
             # Page de marcar consulta
         if indentificador_qlineedit == self.ui.input_patient:
-            self.ui.input_psychologist.setFocus()
+            self.ui.button_patient.click()
         elif indentificador_qlineedit == self.ui.input_psychologist:
-            self.ui.input_observacao.setFocus()
+            self.ui.button_psychologist.click()
         elif indentificador_qlineedit == self.ui.input_observacao:
             self.ui.button_calendar_make.click()
 
@@ -278,15 +283,30 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
 
     # Pesquisa de Usuarios em um tabela
     def abrir_pesquisa_usuarios(self):
-        self.pesquisa_usuarios =  pesquisa_usuarios()
+        if self.ui.button_patient.isChecked():
+            tipo = 1
+        elif self.ui.button_psychologist.isChecked():
+            tipo = 2
+
+        self.tipo_selecionado.emit(tipo)
+
+        self.pesquisa_usuarios =  pesquisa_usuarios(tipo)
         self.pesquisa_usuarios.show() 
         
         # Passa o nomes para o input
-        self.pesquisa_usuarios.usuario_selecionado.connect(self.atualizar_info_marcar_cunsulta)
+        if tipo == 1:
+            self.pesquisa_usuarios.usuario_selecionado.connect(self.atualizar_info_marcar_cunsulta_paciente)
+        elif tipo == 2:
+            self.pesquisa_usuarios.usuario_selecionado.connect(self.atualizar_info_marcar_cunsulta_psicologo)
 
-    def atualizar_info_marcar_cunsulta(self, nome, cpf, id_usuario):
+    def atualizar_info_marcar_cunsulta_paciente(self, nome, cpf, id_usuario):
         # Define o nome no QLineEdit 'input_patient'
         self.ui.input_patient.setText(nome)
+        print(f'ID: {id_usuario} \nEsse e o cpf de uma funcao : {cpf}')
+
+    def atualizar_info_marcar_cunsulta_psicologo(self, nome, cpf, id_usuario):
+        # Define o nome no QLineEdit 'input_psychologist'
+        self.ui.input_psychologist.setText(nome)
         print(f'ID: {id_usuario} \nEsse e o cpf de uma funcao : {cpf}')
 
 class calendario(QtWidgets.QWidget):
@@ -322,12 +342,13 @@ class janela_confirmacao_cadastro(QtWidgets.QWidget):
 
 class pesquisa_usuarios(QtWidgets.QWidget):
     # Define o sinal para emitir o nome e cpf do paciente selecionado
-    usuario_selecionado = QtCore.pyqtSignal(str, str, str)  # Nome, CPF e ID usuario
+    usuario_selecionado = QtCore.pyqtSignal(str, str, int)  # Nome, CPF e ID usuario
     
-    def __init__(self):
+    def __init__(self, tipo_selecionado):
         super(pesquisa_usuarios, self).__init__()
         self.ui = Ui_pesquisa_perfil()
         self.ui.setupUi(self)
+        self.tipo_selecionado = tipo_selecionado
 
 
         # Permite a seleção do usuario com dois click
@@ -347,8 +368,12 @@ class pesquisa_usuarios(QtWidgets.QWidget):
 
             cursor = conn.cursor()
 
-            cursor.execute("""SELECT nome_pessoa, cpf, idade, sexo, email, telefone, endereco, id_usuario FROM v_pacientes""")
-            
+
+            if self.tipo_selecionado == 1:
+                cursor.execute("""SELECT nome_pessoa, cpf, idade, sexo, email, telefone, endereco, id_usuario FROM v_pacientes""")
+            elif self.tipo_selecionado == 2:
+                cursor.execute("""SELECT nome_pessoa, cpf, idade, sexo, email, telefone, endereco, id_usuario FROM v_psicologo""")
+
             rows = cursor.fetchall()
 
             # Número de linhas
@@ -376,8 +401,10 @@ class pesquisa_usuarios(QtWidgets.QWidget):
         email = self.ui.pesquisa_usuarios.item(row, 4).text()
         telefone = self.ui.pesquisa_usuarios.item(row, 5).text()
         endereco = self.ui.pesquisa_usuarios.item(row, 6).text()
-        id_usuario = self.ui.pesquisa_usuarios.item(row, 7)
-        
+        id_usuario_str = self.ui.pesquisa_usuarios.item(row, 7).text()
+
+        id_usuario = int(id_usuario_str)
+
         # Emite o sinal com o nome selecionado
         self.usuario_selecionado.emit(nome, cpf, id_usuario)
 

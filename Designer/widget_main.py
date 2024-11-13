@@ -910,93 +910,48 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
         self.page_make.setObjectName("page_make")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.page_make)
         self.gridLayout_3.setObjectName("gridLayout_3")
-        spacerItem28 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem28, 8, 0, 1, 1)
-        spacerItem29 = QtWidgets.QSpacerItem(60, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem29, 4, 4, 1, 1)
-        self.input_observacao = QtWidgets.QLineEdit(self.page_make)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.input_observacao.sizePolicy().hasHeightForWidth())
-        self.input_observacao.setSizePolicy(sizePolicy)
-        self.input_observacao.setMinimumSize(QtCore.QSize(300, 120))
+        spacerItem28 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_3.addItem(spacerItem28, 4, 1, 1, 1)
+        spacerItem29 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_3.addItem(spacerItem29, 1, 1, 1, 1)
+        self.frame_5 = QtWidgets.QFrame(self.page_make)
+        self.frame_5.setMinimumSize(QtCore.QSize(300, 60))
+        self.frame_5.setMaximumSize(QtCore.QSize(300, 60))
+        self.frame_5.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
+        self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_5.setObjectName("frame_5")
+        self.button_psychologist = QtWidgets.QPushButton(self.frame_5)
+        self.button_psychologist.setGeometry(QtCore.QRect(240, 0, 60, 60))
         font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(8)
-        self.input_observacao.setFont(font)
-        self.input_observacao.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(2)
+        self.button_psychologist.setFont(font)
+        self.button_psychologist.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
 "border:none;\n"
-"border:4px solid rgb(67, 36, 212);\n"
-"border-radius: 7px;\n"
 "color:rgba(0, 0, 0, 240);\n"
-"padding-bottom:7px;")
-        self.input_observacao.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
-        self.input_observacao.setObjectName("input_observacao")
-        self.gridLayout_3.addWidget(self.input_observacao, 8, 1, 1, 1)
-        self.input_time = QtWidgets.QComboBox(self.page_make)
-        self.input_time.setMinimumSize(QtCore.QSize(300, 60))
+"")
+        self.button_psychologist.setText("")
+        self.button_psychologist.setIcon(icon6)
+        self.button_psychologist.setObjectName("button_psychologist")
+        self.input_psychologist = QtWidgets.QLineEdit(self.frame_5)
+        self.input_psychologist.setGeometry(QtCore.QRect(0, 0, 300, 60))
+        self.input_psychologist.setMinimumSize(QtCore.QSize(300, 60))
+        self.input_psychologist.setMaximumSize(QtCore.QSize(300, 60))
         font = QtGui.QFont()
         font.setFamily("JetBrains Mono")
         font.setPointSize(10)
-        font.setStyleStrategy(QtGui.QFont.PreferDefault)
-        self.input_time.setFont(font)
-        self.input_time.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.input_time.setStyleSheet("#input_time{\n"
-"background-color:rgba(0, 0, 0, 0);\n"
-"border: none;\n"
+        self.input_psychologist.setFont(font)
+        self.input_psychologist.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+"border:none;\n"
 "border-bottom:4px solid rgb(67, 36, 212);\n"
 "color:rgba(0, 0, 0, 240);\n"
-"padding-bottom:7px;\n"
-"}\n"
-"#input_time QListView{\n"
-"background-color:rgba(255, 255, 255);\n"
-"color:rgba(0, 0, 0);\n"
-"}")
-        self.input_time.setObjectName("input_time")
-        self.input_time.addItem("")
-        self.input_time.addItem("")
-        self.input_time.addItem("")
-        self.input_time.addItem("")
-        self.input_time.addItem("")
-        self.input_time.addItem("")
-        self.input_time.addItem("")
-        self.input_time.addItem("")
-        self.input_time.addItem("")
-        self.input_time.addItem("")
-        self.input_time.addItem("")
-        self.input_time.addItem("")
-        self.gridLayout_3.addWidget(self.input_time, 5, 3, 1, 1)
-        spacerItem30 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem30, 8, 4, 1, 1)
-        spacerItem31 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_3.addItem(spacerItem31, 1, 1, 1, 1)
-        self.button_make = QtWidgets.QPushButton(self.page_make)
-        self.button_make.setMinimumSize(QtCore.QSize(301, 60))
-        self.button_make.setMaximumSize(QtCore.QSize(16777215, 16777215))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
-        self.button_make.setFont(font)
-        self.button_make.setStyleSheet("QPushButton{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(0, 0, 41), stop:1 rgb(34, 18, 127));\n"
-"    color:rgba(255, 255, 255, 210);\n"
-"    border-radius:5px;\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(17, 9, 84), stop:1 rgb(67, 36, 212));\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(34, 18, 127), stop:1 rgb(0, 0, 41));\n"
-"}")
-        self.button_make.setObjectName("button_make")
-        self.gridLayout_3.addWidget(self.button_make, 8, 3, 1, 1)
-        spacerItem32 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_3.addItem(spacerItem32, 10, 2, 1, 1)
+"padding-bottom:7px;")
+        self.input_psychologist.setEchoMode(QtWidgets.QLineEdit.Normal)
+        self.input_psychologist.setObjectName("input_psychologist")
+        self.input_psychologist.raise_()
+        self.button_psychologist.raise_()
+        self.gridLayout_3.addWidget(self.frame_5, 5, 1, 1, 1)
         self.title_make = QtWidgets.QLabel(self.page_make)
         self.title_make.setMinimumSize(QtCore.QSize(0, 120))
         self.title_make.setMaximumSize(QtCore.QSize(931, 120))
@@ -1012,23 +967,6 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
         self.title_make.setAlignment(QtCore.Qt.AlignCenter)
         self.title_make.setObjectName("title_make")
         self.gridLayout_3.addWidget(self.title_make, 0, 1, 1, 3)
-        self.input_psychologist = QtWidgets.QLineEdit(self.page_make)
-        self.input_psychologist.setMinimumSize(QtCore.QSize(300, 60))
-        self.input_psychologist.setMaximumSize(QtCore.QSize(300, 60))
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        font.setPointSize(10)
-        self.input_psychologist.setFont(font)
-        self.input_psychologist.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
-"border:none;\n"
-"border-bottom:4px solid rgb(67, 36, 212);\n"
-"color:rgba(0, 0, 0, 240);\n"
-"padding-bottom:7px;")
-        self.input_psychologist.setEchoMode(QtWidgets.QLineEdit.Normal)
-        self.input_psychologist.setObjectName("input_psychologist")
-        self.gridLayout_3.addWidget(self.input_psychologist, 5, 1, 1, 1)
-        spacerItem33 = QtWidgets.QSpacerItem(60, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem33, 3, 0, 1, 1)
         self.frame_2 = QtWidgets.QFrame(self.page_make)
         self.frame_2.setMinimumSize(QtCore.QSize(300, 60))
         self.frame_2.setMaximumSize(QtCore.QSize(300, 60))
@@ -1075,13 +1013,126 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
         self.button_calendar_make.setIcon(icon6)
         self.button_calendar_make.setObjectName("button_calendar_make")
         self.gridLayout_3.addWidget(self.frame_2, 3, 3, 1, 1)
-        spacerItem34 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem34, 5, 2, 1, 1)
-        spacerItem35 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_3.addItem(spacerItem35, 7, 1, 1, 1)
+        self.button_make = QtWidgets.QPushButton(self.page_make)
+        self.button_make.setMinimumSize(QtCore.QSize(301, 60))
+        self.button_make.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_make.setFont(font)
+        self.button_make.setStyleSheet("QPushButton{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(0, 0, 41), stop:1 rgb(34, 18, 127));\n"
+"    color:rgba(255, 255, 255, 210);\n"
+"    border-radius:5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(17, 9, 84), stop:1 rgb(67, 36, 212));\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgb(34, 18, 127), stop:1 rgb(0, 0, 41));\n"
+"}")
+        self.button_make.setObjectName("button_make")
+        self.gridLayout_3.addWidget(self.button_make, 8, 3, 1, 1)
+        self.input_time = QtWidgets.QComboBox(self.page_make)
+        self.input_time.setMinimumSize(QtCore.QSize(300, 60))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(10)
+        font.setStyleStrategy(QtGui.QFont.PreferDefault)
+        self.input_time.setFont(font)
+        self.input_time.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.input_time.setStyleSheet("#input_time{\n"
+"background-color:rgba(0, 0, 0, 0);\n"
+"border: none;\n"
+"border-bottom:4px solid rgb(67, 36, 212);\n"
+"color:rgba(0, 0, 0, 240);\n"
+"padding-bottom:7px;\n"
+"}\n"
+"#input_time QListView{\n"
+"background-color:rgba(255, 255, 255);\n"
+"color:rgba(0, 0, 0);\n"
+"}")
+        self.input_time.setObjectName("input_time")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.input_time.addItem("")
+        self.gridLayout_3.addWidget(self.input_time, 5, 3, 1, 1)
+        spacerItem30 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem30, 7, 0, 1, 1)
+        self.label_4 = QtWidgets.QLabel(self.page_make)
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        self.label_4.setFont(font)
+        self.label_4.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
+        self.label_4.setObjectName("label_4")
+        self.gridLayout_3.addWidget(self.label_4, 2, 3, 1, 1)
+        spacerItem31 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem31, 7, 4, 1, 1)
+        spacerItem32 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem32, 5, 2, 1, 1)
+        spacerItem33 = QtWidgets.QSpacerItem(60, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem33, 4, 4, 1, 1)
+        spacerItem34 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_3.addItem(spacerItem34, 9, 2, 1, 1)
+        spacerItem35 = QtWidgets.QSpacerItem(60, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem35, 3, 0, 1, 1)
         spacerItem36 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_3.addItem(spacerItem36, 4, 1, 1, 1)
-        self.input_patient = QtWidgets.QLineEdit(self.page_make)
+        self.gridLayout_3.addItem(spacerItem36, 6, 1, 1, 1)
+        self.input_observacao = QtWidgets.QLineEdit(self.page_make)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.input_observacao.sizePolicy().hasHeightForWidth())
+        self.input_observacao.setSizePolicy(sizePolicy)
+        self.input_observacao.setMinimumSize(QtCore.QSize(300, 120))
+        font = QtGui.QFont()
+        font.setFamily("JetBrains Mono")
+        font.setPointSize(8)
+        self.input_observacao.setFont(font)
+        self.input_observacao.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+"border:none;\n"
+"border:4px solid rgb(67, 36, 212);\n"
+"border-radius: 7px;\n"
+"color:rgba(0, 0, 0, 240);\n"
+"padding-bottom:7px;")
+        self.input_observacao.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
+        self.input_observacao.setObjectName("input_observacao")
+        self.gridLayout_3.addWidget(self.input_observacao, 7, 1, 2, 1)
+        self.frame_4 = QtWidgets.QFrame(self.page_make)
+        self.frame_4.setMinimumSize(QtCore.QSize(300, 60))
+        self.frame_4.setMaximumSize(QtCore.QSize(300, 60))
+        self.frame_4.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
+        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_4.setObjectName("frame_4")
+        self.button_patient = QtWidgets.QPushButton(self.frame_4)
+        self.button_patient.setGeometry(QtCore.QRect(240, 0, 60, 60))
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(2)
+        self.button_patient.setFont(font)
+        self.button_patient.setStyleSheet("background-color:rgba(0, 0, 0, 0);\n"
+"border:none;\n"
+"color:rgba(0, 0, 0, 240);\n"
+"")
+        self.button_patient.setText("")
+        self.button_patient.setIcon(icon6)
+        self.button_patient.setObjectName("button_patient")
+        self.input_patient = QtWidgets.QLineEdit(self.frame_4)
+        self.input_patient.setGeometry(QtCore.QRect(0, 0, 300, 60))
         self.input_patient.setMinimumSize(QtCore.QSize(300, 60))
         self.input_patient.setMaximumSize(QtCore.QSize(300, 60))
         font = QtGui.QFont()
@@ -1095,22 +1146,17 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
 "padding-bottom:7px;")
         self.input_patient.setEchoMode(QtWidgets.QLineEdit.Normal)
         self.input_patient.setObjectName("input_patient")
-        self.gridLayout_3.addWidget(self.input_patient, 3, 1, 1, 1)
-        self.label_4 = QtWidgets.QLabel(self.page_make)
-        font = QtGui.QFont()
-        font.setFamily("JetBrains Mono")
-        self.label_4.setFont(font)
-        self.label_4.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
-        self.label_4.setObjectName("label_4")
-        self.gridLayout_3.addWidget(self.label_4, 2, 3, 1, 1)
         self.input_patient.raise_()
+        self.button_patient.raise_()
+        self.gridLayout_3.addWidget(self.frame_4, 3, 1, 1, 1)
         self.title_make.raise_()
-        self.input_psychologist.raise_()
         self.frame_2.raise_()
         self.input_observacao.raise_()
         self.button_make.raise_()
         self.input_time.raise_()
         self.label_4.raise_()
+        self.frame_5.raise_()
+        self.frame_4.raise_()
         self.stackedWidget.addWidget(self.page_make)
         self.horizontalLayout.addWidget(self.stackedWidget)
 
@@ -1160,7 +1206,10 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
         self.input_sexo_update.setItemText(1, _translate("Sistema_de_Agendamento_Psicologico", "Femenino"))
         self.input_sexo_update.setItemText(2, _translate("Sistema_de_Agendamento_Psicologico", "Masculino"))
         self.label_3.setText(_translate("Sistema_de_Agendamento_Psicologico", "Data de Nascimento:"))
-        self.input_observacao.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Observações"))
+        self.input_psychologist.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Psicólogo(a)"))
+        self.title_make.setText(_translate("Sistema_de_Agendamento_Psicologico", "Marcar Consulta"))
+        self.input_data_make.setDisplayFormat(_translate("Sistema_de_Agendamento_Psicologico", "dd/MM/yyyy"))
+        self.button_make.setText(_translate("Sistema_de_Agendamento_Psicologico", "Marcar Consulta"))
         self.input_time.setItemText(0, _translate("Sistema_de_Agendamento_Psicologico", "  Horario"))
         self.input_time.setItemText(1, _translate("Sistema_de_Agendamento_Psicologico", "7 : 00"))
         self.input_time.setItemText(2, _translate("Sistema_de_Agendamento_Psicologico", "8 : 00"))
@@ -1173,12 +1222,9 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
         self.input_time.setItemText(9, _translate("Sistema_de_Agendamento_Psicologico", "15 : 00"))
         self.input_time.setItemText(10, _translate("Sistema_de_Agendamento_Psicologico", "16 : 00"))
         self.input_time.setItemText(11, _translate("Sistema_de_Agendamento_Psicologico", "17 : 00"))
-        self.button_make.setText(_translate("Sistema_de_Agendamento_Psicologico", "Marcar Consulta"))
-        self.title_make.setText(_translate("Sistema_de_Agendamento_Psicologico", "Marcar Consulta"))
-        self.input_psychologist.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Psicólogo(a)"))
-        self.input_data_make.setDisplayFormat(_translate("Sistema_de_Agendamento_Psicologico", "dd/MM/yyyy"))
-        self.input_patient.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Paciente"))
         self.label_4.setText(_translate("Sistema_de_Agendamento_Psicologico", "  Data da Consulta:"))
+        self.input_observacao.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Observações"))
+        self.input_patient.setPlaceholderText(_translate("Sistema_de_Agendamento_Psicologico", "  Paciente"))
 
 
 if __name__ == "__main__":
