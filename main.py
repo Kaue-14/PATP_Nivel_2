@@ -81,8 +81,8 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         self.ui.button_calendar_update.clicked.connect(self.botao_calendario)
         
         # Usar botões para abrir pesquisa usuarios
-        self.ui.button_patient.clicked.connect(self.abrir_pesquisa_usuarios)
-        self.ui.button_psychologist.clicked.connect(self.abrir_pesquisa_usuarios)
+        self.ui.button_patient.clicked.connect(self.abrir_pesquisa_usuarios_pacientes)
+        self.ui.button_psychologist.clicked.connect(self.abrir_pesquisa_usuarios_psicologo)
 
         # Botão de registro e marcar consulta
         self.ui.button_make.clicked.connect(self.marcar_consulta)
@@ -140,7 +140,11 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
             
             # Chama o método Cadastrar
             cadastrar_usuario.Cadastrar()
-            self.confirmacao_cadastro()
+
+            self.confirmacao_cadastro = janela_confirmacao("Cadastro realizado com sucesso!")
+            self.confirmacao_cadastro.show()
+
+            self.confirmacao_cadastro.ui.Button_quit.clicked.connect(self.limpar_campo)
         else:
             print("As senhas não são iguais.")
 
@@ -154,6 +158,11 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
             status = 'DEFAULT'
         )
         marcar_consulta.Marca_Consulta()
+        
+        self.confirmacao_consulta = janela_confirmacao("Consulta agendada com sucesso.")
+        self.confirmacao_consulta.show()
+
+        self.confirmacao_consulta.ui.Button_quit.clicked.connect(self.limpar_campo)
         
     # Altera entre QLineEdit
     def next_qlineedit(self):
@@ -231,12 +240,6 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
             else:
                 self.ui.input_cpf_update.setFocus()
 
-    # abrir confirmação de Cadastro
-    def confirmacao_cadastro(self):
-        self.confirmacao_cadastro = janela_confirmacao_cadastro()
-        self.confirmacao_cadastro.show()
-
-        self.confirmacao_cadastro.ui.Button_quit.clicked.connect(self.limpar_campo)
 
     # Função pra limpar os campos prenchidos
     def limpar_campo(self):
@@ -282,22 +285,25 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         self.calendar.close()  
 
     # Pesquisa de Usuarios em um tabela
-    def abrir_pesquisa_usuarios(self):
-        if self.ui.button_patient.isChecked():
-            tipo = 1
-        elif self.ui.button_psychologist.isChecked():
-            tipo = 2
-
+    def abrir_pesquisa_usuarios_pacientes(self):
+        tipo = 1
         self.tipo_selecionado.emit(tipo)
 
-        self.pesquisa_usuarios =  pesquisa_usuarios(tipo)
+        self.pesquisa_usuarios =  Classes.Classes_Usuarios.pesquisa_usuarios(tipo)
         self.pesquisa_usuarios.show() 
         
         # Passa o nomes para o input
-        if tipo == 1:
-            self.pesquisa_usuarios.usuario_selecionado.connect(self.atualizar_info_marcar_cunsulta_paciente)
-        elif tipo == 2:
-            self.pesquisa_usuarios.usuario_selecionado.connect(self.atualizar_info_marcar_cunsulta_psicologo)
+        self.pesquisa_usuarios.usuario_selecionado.connect(self.atualizar_info_marcar_cunsulta_paciente)
+    
+    def abrir_pesquisa_usuarios_psicologo(self):
+        tipo = 2
+        self.tipo_selecionado.emit(tipo)
+
+        self.pesquisa_usuarios =  Classes.Classes_Usuarios.pesquisa_usuarios(tipo)
+        self.pesquisa_usuarios.show() 
+        
+        # Passa o nomes para o input
+        self.pesquisa_usuarios.usuario_selecionado.connect(self.atualizar_info_marcar_cunsulta_psicologo)
 
     def atualizar_info_marcar_cunsulta_paciente(self, nome, cpf, id_usuario):
         # Define o nome no QLineEdit 'input_patient'
@@ -329,89 +335,19 @@ class calendario(QtWidgets.QWidget):
         data_selecionada = self.ui.calendar.selectedDate()
         self.data_selected.emit(data_selecionada)
 
-class janela_confirmacao_cadastro(QtWidgets.QWidget):
-    def __init__(self):
-        super(janela_confirmacao_cadastro, self).__init__()
+class janela_confirmacao(QtWidgets.QWidget):
+    def __init__(self,string_confirmacao):
+        super(janela_confirmacao, self).__init__()
         self.ui = Ui_cadastro_ok()
         self.ui.setupUi(self)
+        self.string_confirmacao = string_confirmacao
+
+        self.ui.label.setText(string_confirmacao)
 
         # Remover barra da janela e deixar o fundo transparente
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
 
         self.ui.Button_quit.clicked.connect(self.close)
-
-class pesquisa_usuarios(QtWidgets.QWidget):
-    # Define o sinal para emitir o nome e cpf do paciente selecionado
-    usuario_selecionado = QtCore.pyqtSignal(str, str, int)  # Nome, CPF e ID usuario
-    
-    def __init__(self, tipo_selecionado):
-        super(pesquisa_usuarios, self).__init__()
-        self.ui = Ui_pesquisa_perfil()
-        self.ui.setupUi(self)
-        self.tipo_selecionado = tipo_selecionado
-
-
-        # Permite a seleção do usuario com dois click
-        self.ui.pesquisa_usuarios.cellDoubleClicked.connect(self.pegar_dados)
-
-        # Bug no meu pc
-        conn = None
-        cursor = None
-        try:
-            # Conectar ao banco de dados MySQL
-            conn = mysql.connector.connect(
-                host="127.0.0.1",
-                user="root",
-                password="admin",
-                database="consultoriov1"
-            )
-
-            cursor = conn.cursor()
-
-
-            if self.tipo_selecionado == 1:
-                cursor.execute("""SELECT nome_pessoa, cpf, idade, sexo, email, telefone, endereco, id_usuario FROM v_pacientes""")
-            elif self.tipo_selecionado == 2:
-                cursor.execute("""SELECT nome_pessoa, cpf, idade, sexo, email, telefone, endereco, id_usuario FROM v_psicologo""")
-
-            rows = cursor.fetchall()
-
-            # Número de linhas
-            self.ui.pesquisa_usuarios.setRowCount(len(rows))
-
-            # Pega os dados do banco de dados e coloca na pesquisa
-            for i, row in enumerate(rows):
-                for j, item in enumerate(row):
-                    self.ui.pesquisa_usuarios.setItem(i, j, QTableWidgetItem(str(item)))
-                    
-        except mysql.connector.Error as err:
-            print(f"Erro: {err}")
-        finally:
-            if cursor is not None:
-                cursor.close()
-            if conn is not None:
-                conn.close()
-
-    def pegar_dados(self, row):
-        # Seleciona a linha e extrai os dados
-        nome = self.ui.pesquisa_usuarios.item(row, 0).text()
-        cpf = self.ui.pesquisa_usuarios.item(row, 1).text()
-        idade = self.ui.pesquisa_usuarios.item(row, 2).text()
-        sexo = self.ui.pesquisa_usuarios.item(row, 3).text()
-        email = self.ui.pesquisa_usuarios.item(row, 4).text()
-        telefone = self.ui.pesquisa_usuarios.item(row, 5).text()
-        endereco = self.ui.pesquisa_usuarios.item(row, 6).text()
-        id_usuario_str = self.ui.pesquisa_usuarios.item(row, 7).text()
-
-        id_usuario = int(id_usuario_str)
-
-        # Emite o sinal com o nome selecionado
-        self.usuario_selecionado.emit(nome, cpf, id_usuario)
-
-        # Exibir as informações no terminal
-        print(f"ID: {id_usuario} \nPaciente Selecionado: {nome}, CPF: {cpf}, Idade: {idade}, Sexo: {sexo}, Email: {email}, Telefone: {telefone}, Endereço: {endereco}")
-        
-        self.close()
 
 # Starter
 if __name__ == "__main__":

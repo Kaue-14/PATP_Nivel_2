@@ -2255,7 +2255,7 @@ color:rgba(0, 0, 0, 240);
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>calendar_icon.webp</normaloff>calendar_icon.webp</iconset>
+            <normaloff>pesquisa_usuarios.png</normaloff>pesquisa_usuarios.png</iconset>
           </property>
          </widget>
          <widget class="QLineEdit" name="input_psychologist">
@@ -2796,7 +2796,7 @@ color:rgba(0, 0, 0, 240);
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>calendar_icon.webp</normaloff>calendar_icon.webp</iconset>
+            <normaloff>pesquisa_usuarios.png</normaloff>pesquisa_usuarios.png</iconset>
           </property>
          </widget>
          <widget class="QLineEdit" name="input_patient">

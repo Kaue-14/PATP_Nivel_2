@@ -932,7 +932,9 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
 "color:rgba(0, 0, 0, 240);\n"
 "")
         self.button_psychologist.setText("")
-        self.button_psychologist.setIcon(icon6)
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap("Designer\\pesquisa_usuarios.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.button_psychologist.setIcon(icon7)
         self.button_psychologist.setObjectName("button_psychologist")
         self.input_psychologist = QtWidgets.QLineEdit(self.frame_5)
         self.input_psychologist.setGeometry(QtCore.QRect(0, 0, 300, 60))
@@ -1129,7 +1131,7 @@ class Ui_Sistema_de_Agendamento_Psicologico(object):
 "color:rgba(0, 0, 0, 240);\n"
 "")
         self.button_patient.setText("")
-        self.button_patient.setIcon(icon6)
+        self.button_patient.setIcon(icon7)
         self.button_patient.setObjectName("button_patient")
         self.input_patient = QtWidgets.QLineEdit(self.frame_4)
         self.input_patient.setGeometry(QtCore.QRect(0, 0, 300, 60))
