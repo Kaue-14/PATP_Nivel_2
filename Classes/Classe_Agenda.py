@@ -65,10 +65,10 @@ class Agenda:
                 hora = None
 
             # Inserir dados na tabela agendamentos
-            # cursor.execute(f"""
-            # INSERT INTO agendamentos1 (id_paciente, id_psicologo, observacoes, data, hora)
-            # VALUES ('{self.paciente}','{self.psicologo}','{self.observacoes}','{data}','{hora}')
-            # """)
+            cursor.execute(f"""
+            INSERT INTO agendamentos1 (id_paciente, id_psicologo, observacoes, data, hora)
+            VALUES ('{self.paciente}','{self.psicologo}','{self.observacoes}','{data}','{hora}')
+            """)
 
         except mysql.connector.Error as err:
             print(f"Erro: {err}")

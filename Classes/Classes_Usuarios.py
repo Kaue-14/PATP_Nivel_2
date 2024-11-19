@@ -51,38 +51,40 @@ class Usuarios:
             if self.tipo == "Paciente":
                 tipo = "paciente"
                 
-                # Gerar id com base no ultimo criado
-                cursor.execute("SELECT MAX(id_paciente) FROM usuarios1")
-                ultimo_id = cursor.fetchone()[0]
+                # NÃO FUNCIONA ESSA PARTE
+                    # # Gerar id com base no ultimo criado
+                    # cursor.execute("SELECT MAX(id_paciente) FROM usuarios1")
+                    # ultimo_id = cursor.fetchone()[0]
 
-                id_paciente = ultimo_id + 1
+                    # id_paciente = ultimo_id + 1
 
-                # Inserir dados na tabela usuarios
-                cursor.execute(f"""
-                    INSERT INTO usuarios1 (nome_pessoa, data_nascimento, sexo, cpf, email, senha, telefone, endereco, tipo, id_paciente)
-                    VALUES ('{self.nome_pessoa}', '{data_nascimento}', '{sexo}', '{self.cpf}', '{self.email}', '{self.senha}', '{self.telefone}', '{self.endereco}', '{tipo}', {id_paciente})
-                """)
+                    # # Inserir dados na tabela usuarios
+                    # cursor.execute(f"""
+                    #     INSERT INTO usuarios1 (nome_pessoa, data_nascimento, sexo, cpf, email, senha, telefone, endereco, tipo, id_paciente)
+                    #     VALUES ('{self.nome_pessoa}', '{data_nascimento}', '{sexo}', '{self.cpf}', '{self.email}', '{self.senha}', '{self.telefone}', '{self.endereco}', '{tipo}', {id_paciente})
+                    # """)
 
             elif self.tipo == "Psicólogo(a)":
                 tipo = "psicólogo"
 
-                # Gerar id com base no ultimo criado
-                cursor.execute("SELECT MAX(id_paciente) FROM usuarios1")
-                ultimo_id = cursor.fetchone()[0]
+                # NÃO FUNCIONA ESSA PARTE
+                    # # Gerar id com base no ultimo criado
+                    # cursor.execute("SELECT MAX(id_paciente) FROM usuarios1")
+                    # ultimo_id = cursor.fetchone()[0]
 
-                id_psicologo = ultimo_id + 1
+                    # id_psicologo = ultimo_id + 1
 
-                # Inserir dados na tabela usuarios
-                cursor.execute(f"""
-                    INSERT INTO usuarios1 (nome_pessoa, data_nascimento, sexo, cpf, email, senha, telefone, endereco, tipo, id_psicologo)
-                    VALUES ('{self.nome_pessoa}', '{data_nascimento}', '{sexo}', '{self.cpf}', '{self.email}', '{self.senha}', '{self.telefone}', '{self.endereco}', '{tipo}', {id_psicologo})
-                """)
+                    # # Inserir dados na tabela usuarios
+                    # cursor.execute(f"""
+                    #     INSERT INTO usuarios1 (nome_pessoa, data_nascimento, sexo, cpf, email, senha, telefone, endereco, tipo, id_psicologo)
+                    #     VALUES ('{self.nome_pessoa}', '{data_nascimento}', '{sexo}', '{self.cpf}', '{self.email}', '{self.senha}', '{self.telefone}', '{self.endereco}', '{tipo}', {id_psicologo})
+                    # """)
 
             # Inserir dados na tabela usuarios
-            # cursor.execute(f"""
-            #     INSERT INTO usuarios1 (nome_pessoa, data_nascimento, sexo, cpf, email, senha, telefone, endereco, tipo)
-            #     VALUES ('{self.nome_pessoa}', '{data_nascimento}', '{sexo}', '{self.cpf}', '{self.email}', '{self.senha}', '{self.telefone}', '{self.endereco}', '{tipo}')
-            # """)
+            cursor.execute(f"""
+                INSERT INTO usuarios1 (nome_pessoa, data_nascimento, sexo, cpf, email, senha, telefone, endereco, tipo)
+                VALUES ('{self.nome_pessoa}', '{data_nascimento}', '{sexo}', '{self.cpf}', '{self.email}', '{self.senha}', '{self.telefone}', '{self.endereco}', '{tipo}')
+             """)
 
             conn.commit()
             print("Cadastro realizado com sucesso!")

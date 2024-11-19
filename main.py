@@ -58,6 +58,10 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         self.ui = Ui_Sistema_de_Agendamento_Psicologico()
         self.ui.setupUi(self)
 
+        # Amarzenar os ids
+        self.id_paciente = None
+        self.id_psicologo = None
+
         # colocar a data atual em todos o QDate
         self.ui.input_data.setDate(QDate.currentDate())
         self.ui.input_data_make.setDate(QDate.currentDate())
@@ -152,8 +156,8 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         marcar_consulta = Classes.Classe_Agenda.Agenda(
             data = self.ui.input_data_make.date(),
             hora = self.ui.input_time.currentText(),
-            paciente = self.ui.input_patient.text(),
-            psicologo = self.ui.input_psychologist.text(),
+            paciente = self.id_paciente,
+            psicologo = self.id_psicologo,
             observacoes = self.ui.input_observacao.text(),
             status = 'DEFAULT'
         )
@@ -310,10 +314,66 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
         self.ui.input_patient.setText(nome)
         print(f'ID: {id_usuario} \nEsse e o cpf de uma funcao : {cpf}')
 
+        # Bug no meu pc
+        conn = None
+        cursor = None
+        try:
+            # Conectar ao banco de dados MySQL
+            conn = mysql.connector.connect(
+                host="127.0.0.1",
+                user="root",
+                password="admin",
+                database="consultoriov1"
+            )
+
+            cursor = conn.cursor()
+        
+            # Pegar id_paciente
+            cursor.execute("SELECT id_paciente FROM usuarios WHERE cpf = '{cpf}'")
+            id_paciente = self.cursor.fetchone()[0]
+        
+            self.id_paciente = id_paciente
+        
+        except mysql.connector.Error as err:
+            print(f"Erro: {err}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+
     def atualizar_info_marcar_cunsulta_psicologo(self, nome, cpf, id_usuario):
         # Define o nome no QLineEdit 'input_psychologist'
         self.ui.input_psychologist.setText(nome)
         print(f'ID: {id_usuario} \nEsse e o cpf de uma funcao : {cpf}')
+
+        # Bug no meu pc
+        conn = None
+        cursor = None
+        try:
+            # Conectar ao banco de dados MySQL
+            conn = mysql.connector.connect(
+                host="127.0.0.1",
+                user="root",
+                password="admin",
+                database="consultoriov1"
+            )
+
+            cursor = conn.cursor()
+        
+            # Pegar id_psicologo
+            self.cursor.execute("SELECT id_psicologo FROM usuarios WHERE cpf = '{cpf}'")
+            self.id_psicologo = self.cursor.fetchone()[0]
+        
+            self.id_psicologo = id_psicologo
+        
+        except mysql.connector.Error as err:
+            print(f"Erro: {err}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
 
 class calendario(QtWidgets.QWidget):
     data_selected = QtCore.pyqtSignal(QtCore.QDate)
