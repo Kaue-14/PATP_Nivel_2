@@ -207,9 +207,9 @@ class pesquisa_usuarios(QtWidgets.QWidget):
 
         # Exibir as informações no terminal
         if self.tipo_selecionado == 1:     
-            print(f"ID: {id_usuario} \nPaciente Selecionado: {nome}, CPF: {cpf}, Idade: {idade}, Sexo: {sexo}, Email: {email}, Telefone: {telefone}, Endereço: {endereco}")
+            print(f"\nID: {id_usuario} Paciente Selecionado: {nome}, CPF: {cpf}, Idade: {idade}, Sexo: {sexo}, Email: {email}, Telefone: {telefone}, Endereço: {endereco}\n")
         elif self.tipo_selecionado == 2:     
-            print(f"ID: {id_usuario} \nPsicólogo(a) Selecionado: {nome}, CPF: {cpf}, Idade: {idade}, Sexo: {sexo}, Email: {email}, Telefone: {telefone}, Endereço: {endereco}")
+            print(f"\nID: {id_usuario} Psicólogo(a) Selecionado: {nome}, CPF: {cpf}, Idade: {idade}, Sexo: {sexo}, Email: {email}, Telefone: {telefone}, Endereço: {endereco}\n")
 
         
         self.close()

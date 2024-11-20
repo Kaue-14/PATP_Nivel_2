@@ -1,5 +1,6 @@
 # Pyqt5 Importe
 from PyQt5 import QtWidgets, QtCore 
+from PyQt5.QtWidgets import QTableWidgetItem
 import sys
 
 # Banco de dados
@@ -40,11 +41,11 @@ class Agenda:
             data = self.data.toString("yyyy-MM-dd")
                 # Horário
             if self.hora == '7 : 00':
-                hora = '7:00:00'
+                hora = '07:00:00'
             elif self.hora == '8 : 00':
-                hora = '8:00:00'
+                hora = '08:00:00'
             elif self.hora == '9 : 00':
-                hora = '9:00:00'
+                hora = '09:00:00'
             elif self.hora == '10 : 00':
                 hora = '10:00:00'
             elif self.hora == '11 : 00':
@@ -61,14 +62,10 @@ class Agenda:
                 hora = '16:00:00'
             elif self.hora == '17 : 00':
                 hora = '17:00:00'
-            else:
-                hora = None
 
             # Inserir dados na tabela agendamentos
-            cursor.execute(f"""
-            INSERT INTO agendamentos1 (id_paciente, id_psicologo, observacoes, data, hora)
-            VALUES ('{self.paciente}','{self.psicologo}','{self.observacoes}','{data}','{hora}')
-            """)
+            cursor.execute(f"INSERT INTO agendamentos1 (id_paciente, id_psicologo, observacoes, data, hora) VALUES ({self.paciente}, {self.psicologo}, '{self.observacoes}', '{data}', '{hora}')")
+            conn.commit()
 
         except mysql.connector.Error as err:
             print(f"Erro: {err}")

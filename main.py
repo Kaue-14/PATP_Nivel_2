@@ -312,7 +312,6 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
     def atualizar_info_marcar_cunsulta_paciente(self, nome, cpf, id_usuario):
         # Define o nome no QLineEdit 'input_patient'
         self.ui.input_patient.setText(nome)
-        print(f'ID: {id_usuario} \nEsse e o cpf de uma funcao : {cpf}')
 
         # Bug no meu pc
         conn = None
@@ -329,8 +328,8 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
             cursor = conn.cursor()
         
             # Pegar id_paciente
-            cursor.execute("SELECT id_paciente FROM usuarios WHERE cpf = '{cpf}'")
-            id_paciente = self.cursor.fetchone()[0]
+            cursor.execute(f"SELECT id_paciente FROM usuarios1 WHERE cpf = '{cpf}'")
+            id_paciente = cursor.fetchone()[0]
         
             self.id_paciente = id_paciente
         
@@ -345,7 +344,6 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
     def atualizar_info_marcar_cunsulta_psicologo(self, nome, cpf, id_usuario):
         # Define o nome no QLineEdit 'input_psychologist'
         self.ui.input_psychologist.setText(nome)
-        print(f'ID: {id_usuario} \nEsse e o cpf de uma funcao : {cpf}')
 
         # Bug no meu pc
         conn = None
@@ -362,11 +360,11 @@ class sistema_de_agendamento_psicologico(QtWidgets.QWidget):
             cursor = conn.cursor()
         
             # Pegar id_psicologo
-            self.cursor.execute("SELECT id_psicologo FROM usuarios WHERE cpf = '{cpf}'")
-            self.id_psicologo = self.cursor.fetchone()[0]
+            cursor.execute(f"SELECT id_psicologo FROM usuarios1 WHERE cpf = '{cpf}'")
+            id_psicologo = cursor.fetchone()[0]
         
             self.id_psicologo = id_psicologo
-        
+
         except mysql.connector.Error as err:
             print(f"Erro: {err}")
         finally:
